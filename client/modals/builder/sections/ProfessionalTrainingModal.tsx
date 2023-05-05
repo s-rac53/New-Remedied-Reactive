@@ -28,7 +28,7 @@ const schema = Joi.object<FormData>().keys({
   summary: Joi.string().allow(),
 });
 
-const InterestModal: React.FC = () => {
+const ProfessionalTrainingModal: React.FC = () => {
   const { t } = useTranslation();
 
   const dispatch = useAppDispatch();
