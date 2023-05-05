@@ -3,6 +3,7 @@ import {
   Award,
   Certificate,
   Education,
+  ProfessionalTraining,
   Interest,
   Language,
   Project,
@@ -417,6 +418,28 @@ export class IntegrationsService {
         // pass through
       }
 
+      //Professional Training
+      try {
+        const professionaltrainings: any[] = get(jsonResume, 'professionaltrainings', []);
+        professionaltrainings.forEach((professionaltrainings) => {
+          merge<Partial<Resume>, DeepPartial<Resume>>(resume, {
+            sections: {
+              professionaltrainings: {
+                items: [
+                  ...get(resume, 'sections.professionaltrainings.items', []),
+                  {
+                    id: uuidv4(),
+                    summary: get(professionaltrainings, 'summary'),
+                  } as ProfessionalTraining,
+                ],
+              },
+            },
+          });
+        });
+      } catch {
+        // pass through
+      }
+
       // Publications
       try {
         const publications: any[] = get(jsonResume, 'publications', []);
@@ -727,6 +750,30 @@ export class IntegrationsService {
       } catch {
         // pass through
       }
+
+      // Professional Training
+      try {
+        const professionaltrainings: any[] = get(jsonResume, 'professionaltrainings.items', []);
+        professionaltrainings.forEach((professionaltrainings) => {
+          merge<Partial<Resume>, DeepPartial<Resume>>(resume, {
+            sections: {
+              professionaltrainings: {
+                items: [
+                  ...get(resume, 'sections.professionaltrainings.items', []),
+                  {
+                    id: uuidv4(),
+                    summary: get(professionaltrainings, 'summary'),
+                    
+                  } as ProfessionalTraining,
+                ],
+              },
+            },
+          });
+        });
+      } catch {
+        // pass through
+      }
+
 
       // Certifications
       try {
