@@ -7,11 +7,11 @@ import { useAppSelector } from '@/store/hooks';
 import DataDisplay from '@/templates/shared/DataDisplay';
 import { formatDateString } from '@/utils/date';
 import getProfileIcon from '@/utils/getProfileIcon';
-import { addHttp, formatLocation, getPhotoClassNames } from '@/utils/template';
+import { addHttp, getPhotoClassNames } from '@/utils/template';
 
 const Masthead = () => {
   const dateFormat: string = useAppSelector((state) => get(state.resume.present, 'metadata.date.format'));
-  const { name, photo, email, phone, website, birthdate, headline, location, profiles } = useAppSelector(
+  const { name, photo, email, phone, website, birthdate, headline, location, placeofbirth, genderandnationality, profiles } = useAppSelector(
     (state) => state.resume.present.basics
   );
 
@@ -49,7 +49,11 @@ const Masthead = () => {
           {website}
         </DataDisplay>
 
-        <DataDisplay icon={<Room />}>{formatLocation(location)}</DataDisplay>
+        <DataDisplay icon={<Room />}>{location}</DataDisplay>
+
+        <DataDisplay icon={<Room />}><b>{placeofbirth}</b></DataDisplay>
+
+        <DataDisplay icon={<Room />}><b>{genderandnationality}</b></DataDisplay>
 
         {profiles.map(({ id, username, network, url }) => (
           <DataDisplay key={id} icon={getProfileIcon(network)} link={url && addHttp(url)}>

@@ -1,10 +1,10 @@
-export type Location = {
-  address: string;
-  city: string;
-  region: string;
-  country: string;
-  postalCode: string;
-};
+// export type Location = {
+//   address: string;
+//   city: string;
+//   region: string;
+//   country: string;
+//   postalCode: string;
+// };
 
 export type Profile = {
   id?: string;
@@ -36,7 +36,8 @@ export type Basics = {
   website: string;
   headline: string;
   birthdate: string;
-  summary: string;
-  location: Location;
+  placeofbirth: string;
+  genderandnationality: string;
+  location: string;
   profiles: Profile[];
 };

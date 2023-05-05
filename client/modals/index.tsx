@@ -13,6 +13,7 @@ import AwardModal from './builder/sections/AwardModal';
 import CertificateModal from './builder/sections/CertificateModal';
 import CustomModal from './builder/sections/CustomModal';
 import EducationModal from './builder/sections/EducationModal';
+import ProfessionalTrainingModal from './builder/sections/ProfessionalTrainingModal';
 import InterestModal from './builder/sections/InterestModal';
 import LanguageModal from './builder/sections/LanguageModal';
 import ProfileModal from './builder/sections/ProfileModal';
@@ -63,6 +64,7 @@ const ModalWrapper: React.FC = () => {
       <ProfileModal />
       <WorkModal />
       <EducationModal />
+      <ProfessionalTrainingModal />
       <AwardModal />
       <CertificateModal />
       <PublicationModal />

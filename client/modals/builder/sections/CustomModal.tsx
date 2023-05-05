@@ -29,10 +29,7 @@ export type CustomModalPayload = {
 const defaultState: FormData = {
   title: '',
   subtitle: '',
-  date: {
-    start: '',
-    end: '',
-  },
+  date: '',
   url: '',
   level: '',
   levelNum: 0,
@@ -44,10 +41,7 @@ const schema = Joi.object<FormData>().keys({
   id: Joi.string(),
   title: Joi.string().required(),
   subtitle: Joi.string().allow(''),
-  date: Joi.object().keys({
-    start: Joi.string().allow(''),
-    end: Joi.string().allow(''),
-  }),
+  date: Joi.string().allow(''),
   url: Joi.string().pattern(VALID_URL_REGEX, { name: 'valid URL' }).allow(''),
   level: Joi.string().allow(''),
   levelNum: Joi.number().min(0).max(10),
@@ -141,57 +135,19 @@ const CustomModal: React.FC = () => {
         />
 
         <Controller
-          name="date.start"
+          name="date"
           control={control}
           render={({ field, fieldState }) => (
-            <DatePicker
-              openTo="year"
-              inputRef={field.ref}
-              label={t<string>('builder.common.form.start-date.label')}
-              value={dayjs(field.value)}
-              views={['year', 'month', 'day']}
-              slots={{
-                textField: (params) => (
-                  <TextField
-                    {...params}
-                    error={!!fieldState.error}
-                    helperText={fieldState.error?.message || params.inputProps?.placeholder}
-                  />
-                ),
-              }}
-              onChange={(date: dayjs.Dayjs | null) => {
-                date && dayjs(date).isValid() && field.onChange(dayjs(date).format('YYYY-MM-DD'));
-              }}
+            <TextField
+              label={t<string>('builder.common.form.date.label')}
+              error={!!fieldState.error}
+              helperText={fieldState.error?.message}
+              {...field}
             />
           )}
         />
 
-        <Controller
-          name="date.end"
-          control={control}
-          render={({ field, fieldState }) => (
-            <DatePicker
-              openTo="year"
-              inputRef={field.ref}
-              label={t<string>('builder.common.form.end-date.label')}
-              value={dayjs(field.value)}
-              views={['year', 'month', 'day']}
-              slots={{
-                textField: (params) => (
-                  <TextField
-                    {...params}
-                    error={!!fieldState.error}
-                    helperText={fieldState.error?.message || t<string>('builder.common.form.end-date.help-text')}
-                  />
-                ),
-              }}
-              onChange={(date: dayjs.Dayjs | null) => {
-                date && dayjs(date).isValid() && field.onChange(dayjs(date).format('YYYY-MM-DD'));
-              }}
-            />
-          )}
-        />
-
+        
         <Controller
           name="url"
           control={control}

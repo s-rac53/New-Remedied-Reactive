@@ -16,17 +16,13 @@ const sampleData: Partial<Resume> = {
       },
       visible: true,
     },
-    summary:
-      'I am a creative frontend developer offering 4+ years of experience providing high-impact web solutions for diverse industry organizations. Skilled in designing, developing and testing multiple web-based applications incorporating a range of technologies. Aspiring to combine broad background with strong technical skills to excel as a frontend web developer.',
     website: 'alexisjones.com',
     headline: 'Highly Creative Frontend Web Developer',
-    location: {
-      city: 'Stuttgart',
-      region: 'Baden-Württemberg',
-      address: 'Ollenhauer Str. 51',
-      country: 'Germany',
-      postalCode: '70376',
-    },
+    location: 'Baden-Württemberg',
+    placeofbirth: 'Austria',
+    genderandnationality: 'Male & Indian',
+
+
     profiles: [
       {
         id: '4df61ffc-e48b-43f1-9434-add35d9cb155',
@@ -51,25 +47,23 @@ const sampleData: Partial<Resume> = {
         {
           id: 'fe280c61-9d92-4dba-8a08-274866470096',
           url: 'https://www.espritcam.com',
-          date: {
-            end: '',
-            start: '2015-09-01',
-          },
+          date: '2015-09-01',
           name: 'DP Technology Corp.',
           summary:
             '- Manage website development projects from initial design through completion, optimizing all cross-browser and multi-platform compatibility.\n- Work closely with programmers and clients to meet project requirements, goals, and desired functionality.\n- Develop and integrate customized themes into WordPress, PHP-Fusion, and Concrete5.\nConduct training for clients on handling website content management systems.\n- Enable site-wide promotions by programming HTML5 canvases to animate particles on web backgrounds.',
+          about:
+            '- Manage website development projects from initial design through completion, optimizing all cross-browser and multi-platform compatibility.\n- Work closely with programmers and clients to meet project requirements, goals, and desired functionality.\n- Develop and integrate customized themes into WordPress, PHP-Fusion, and Concrete5.\nConduct training for clients on handling website content management systems.\n- Enable site-wide promotions by programming HTML5 canvases to animate particles on web backgrounds.',  
           position: 'Frontend Developer, Stuttgart DE',
         },
         {
           id: '285d78f8-df56-4569-ba6b-cff5ebe5381e',
           url: 'https://www.vokophone.com',
-          date: {
-            end: '2015-07-31',
-            start: '2011-05-31',
-          },
+          date: '2015-09-01',
           name: 'Voko Communications',
           summary:
             '- Developed websites from front to backend using PHP, JavaScript, and HTML.\n- Enhanced user experience and accomplish webpage objectives by creating site structure, navigation, page optimization, and graphics integration.\n- Implemented enhancements that improved web functionality and responsiveness.\n- Designed and maintained both corporate and client websites, using scripting languages and content management systems including WordPress.',
+          about:
+            '- Manage website development projects from initial design through completion, optimizing all cross-browser and multi-platform compatibility.\n- Work closely with programmers and clients to meet project requirements, goals, and desired functionality.\n- Develop and integrate customized themes into WordPress, PHP-Fusion, and Concrete5.\nConduct training for clients on handling website content management systems.\n- Enable site-wide promotions by programming HTML5 canvases to animate particles on web backgrounds.',  
           position: 'Frontend Developer',
         },
       ],
@@ -154,10 +148,7 @@ const sampleData: Partial<Resume> = {
         {
           name: 'Fintech News Inc.',
           description: 'Backend Developer',
-          date: {
-            start: '2020-01-01T17:14:14.000Z',
-            end: '2020-04-01T16:14:20.000Z',
-          },
+          date: '2015-09-01',
           url: '',
           summary:
             '- Created a content management system serving as a client interface that reduced download times by 30%.\n- Developed new admin panel, which improved internal operating efficiency by over 40%.\n- Created comprehensive testing regime using RSpec to ensure bug-free code.\n- Rebuilt entire website with up to date technologies and frameworks.',
@@ -167,10 +158,7 @@ const sampleData: Partial<Resume> = {
         {
           name: 'Systron Solutions, San Francisco, CA',
           description: 'Inside Sales Associate',
-          date: {
-            start: '2020-01-01T17:14:14.000Z',
-            end: '2020-04-01T16:14:20.000Z',
-          },
+          date: '2015-09-01',
           url: '',
           summary:
             '- Performed an average of 90+ cold calls daily creating three new qualified prospects exceeding company average by 10%.\n- Managed a $1 million pipeline that supported the creation of 50 new accounts.\n- Sold SaaS and Cloud offering to key accounts including California State University, Ace Athetics and BMI, succeeding in reducing back-up time by 50%.\n\n**Key Projects:** Worked with IT team to create a new web-based leads-generating system, resulting in closed sales increasing by 18% contributing to a $1.5 million increase in profits.',
@@ -189,35 +177,44 @@ const sampleData: Partial<Resume> = {
         {
           id: '3f0eded8-ee1f-4c0e-b4a7-7a0811c150db',
           url: 'https://www.greenriver.edu',
-          area: 'Computer Science',
-          date: {
-            end: '',
-            start: '2011-01-04T23:00:00.000Z',
-          },
+          date: '2015-09-01',
           score: 'Honors: cum laude (GPA: 3.6/4.0)',
           degree: 'Bachelor of Science',
-          courses: ['Data Structures and Algorithms', 'Logic Design'],
-          summary: '',
+          courses: 'Data Structures and Algorithms, Logic Design',
+          summary: 'Good college',
           institution: 'Green River College',
+          dop: '12-05-2016'
         },
         {
           id: 'e4977e01-25bf-4524-95c4-20c77c3cf700',
           url: 'https://www.lsu.edu',
-          area: 'English Literature',
-          date: {
-            end: '2010-12-31T23:00:00.000Z',
-            start: '2008-01-31T23:00:00.000Z',
-          },
+          date: '2015-09-01',
           score: 'Baton Rouge, LA',
           degree: 'Bachelor of Arts',
-          courses: ['Copywriting', 'Product Analysis'],
-          summary: '',
+          courses: 'Copywriting, Product Analysis',
+          summary: 'nice college',
           institution: 'Louisiana State University',
+          dop: '05-05-2016'
         },
       ],
       columns: 2,
       visible: true,
     },
+
+    professionaltrainings: {
+      id: 'professionaltrainings',
+      name: 'Professional Training',
+      type: 'basic',
+      items: [
+        {
+          id: '3f0frt68-e12f-4c8e-de47-6yh7i1c150db',
+          summary: 'Good college, Lorem ipsum dolor sit amet, **consectetur adipiscing elit.** Nam scelerisque ac metus sit amet tempor. Sed luctus dui fermentum aliquet dapibus.',    
+        },
+      ],
+      columns: 1,
+      visible: true,
+    },
+
     interests: {
       id: 'interests',
       name: 'Interests',
@@ -359,10 +356,7 @@ const sampleData: Partial<Resume> = {
         {
           id: 'bcd19f25-b015-4532-b555-dbcc6f556661',
           url: '',
-          date: {
-            end: '',
-            start: '',
-          },
+          date: '',
           level: '',
           title: 'Leadership',
           summary: '',
@@ -373,10 +367,7 @@ const sampleData: Partial<Resume> = {
         {
           id: 'e6fde8df-dcc8-4481-b872-2c298e7a3bbf',
           url: '',
-          date: {
-            end: '',
-            start: '',
-          },
+          date: '',
           level: '',
           title: 'Creativity',
           summary: '',
@@ -387,10 +378,7 @@ const sampleData: Partial<Resume> = {
         {
           id: '888db537-bed2-4d4d-901b-2c7f905f0464',
           url: '',
-          date: {
-            end: '',
-            start: '',
-          },
+          date: '',
           level: '',
           title: 'Problem Solving',
           summary: '',
@@ -401,10 +389,7 @@ const sampleData: Partial<Resume> = {
         {
           id: '74b9984e-4f0f-4db3-bdc8-fddb647b8df8',
           url: '',
-          date: {
-            end: '',
-            start: '',
-          },
+          date: '',
           level: '',
           title: 'Organization Skills',
           summary: '',
@@ -440,7 +425,7 @@ const sampleData: Partial<Resume> = {
         ['skills', '2d47a563-d0a0-4275-af18-fea3ba6b57b4', 'awards'],
         ['certifications', 'interests', 'languages'],
       ],
-      [['projects'], ['references']],
+      [['projects','professionaltrainings'], ['references']],
     ],
     template: 'kakuna',
     typography: {

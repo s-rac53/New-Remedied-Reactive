@@ -127,42 +127,14 @@ const PublicationModal: React.FC = () => {
           name="date"
           control={control}
           render={({ field, fieldState }) => (
-            <DatePicker
-              openTo="year"
-              inputRef={field.ref}
-              label={t<string>('builder.common.form.date.label')}
-              value={dayjs(field.value)}
-              views={['year', 'month', 'day']}
-              slots={{
-                textField: (params) => (
-                  <TextField
-                    {...params}
-                    error={!!fieldState.error}
-                    helperText={fieldState.error?.message || params.inputProps?.placeholder}
-                  />
-                ),
-              }}
-              onChange={(date: dayjs.Dayjs | null) => {
-                date && dayjs(date).isValid() && field.onChange(dayjs(date).format('YYYY-MM-DD'));
-              }}
-            />
-          )}
-        />
-
-        <Controller
-          name="url"
-          control={control}
-          render={({ field, fieldState }) => (
             <TextField
-              label={t<string>('builder.common.form.url.label')}
-              placeholder="https://"
+              label={t<string>('builder.common.form.date.label')}
               error={!!fieldState.error}
               helperText={fieldState.error?.message}
               {...field}
             />
           )}
         />
-
         <Controller
           name="summary"
           control={control}

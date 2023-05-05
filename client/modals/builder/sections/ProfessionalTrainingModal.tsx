@@ -1,9 +1,7 @@
 import { joiResolver } from '@hookform/resolvers/joi';
 import { Add, DriveFileRenameOutline } from '@mui/icons-material';
 import { Button, TextField } from '@mui/material';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { Project, SectionPath } from '@reactive-resume/schema';
-import dayjs from 'dayjs';
+import { ProfessionalTraining, SectionPath } from '@reactive-resume/schema';
 import Joi from 'joi';
 import get from 'lodash/get';
 import isEmpty from 'lodash/isEmpty';
@@ -13,36 +11,24 @@ import { Controller, useForm } from 'react-hook-form';
 
 import ArrayInput from '@/components/shared/ArrayInput';
 import BaseModal from '@/components/shared/BaseModal';
-import MarkdownSupported from '@/components/shared/MarkdownSupported';
-import { VALID_URL_REGEX } from '@/constants/index';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { setModalState } from '@/store/modal/modalSlice';
 import { addItem, editItem } from '@/store/resume/resumeSlice';
 
-type FormData = Project;
+type FormData = ProfessionalTraining;
 
-const path: SectionPath = 'sections.projects';
+const path: SectionPath = 'sections.professionaltrainings';
 
 const defaultState: FormData = {
-  name: '',
-  description: '',
-  date: '',
-  url: '',
   summary: '',
-  keywords: [],
 };
 
 const schema = Joi.object<FormData>().keys({
   id: Joi.string(),
-  name: Joi.string().required(),
-  description: Joi.string().required(),
-  date: Joi.string().allow(''),
-  url: Joi.string().pattern(VALID_URL_REGEX, { name: 'valid URL' }).allow(''),
-  summary: Joi.string().allow(''),
-  keywords: Joi.array().items(Joi.string().optional()),
+  summary: Joi.string().allow(),
 });
 
-const ProjectModal: React.FC = () => {
+const InterestModal: React.FC = () => {
   const { t } = useTranslation();
 
   const dispatch = useAppDispatch();
@@ -98,96 +84,25 @@ const ProjectModal: React.FC = () => {
     >
       <form className="my-2 grid grid-cols-2 gap-4" onSubmit={handleSubmit(onSubmit)}>
         <Controller
-          name="name"
+          name="summary"
           control={control}
           render={({ field, fieldState }) => (
             <TextField
               required
               autoFocus
-              label={t<string>('builder.common.form.name.label')}
-              error={!!fieldState.error}
-              helperText={fieldState.error?.message}
-              {...field}
-            />
-          )}
-        />
-
-        <Controller
-          name="description"
-          control={control}
-          render={({ field, fieldState }) => (
-            <TextField
-              required
-              label={t<string>('builder.common.form.description.label')}
-              error={!!fieldState.error}
-              helperText={fieldState.error?.message}
-              {...field}
-            />
-          )}
-        />
-
-        <Controller
-          name="date"
-          control={control}
-          render={({ field, fieldState }) => (
-            <TextField
-              label={t<string>('builder.common.form.date.label')}
-              error={!!fieldState.error}
-              helperText={fieldState.error?.message}
-              {...field}
-            />
-          )}
-        />
-
-        <Controller
-          name="url"
-          control={control}
-          render={({ field, fieldState }) => (
-            <TextField
-              label={t<string>('builder.common.form.url.label')}
-              placeholder="https://"
-              className="col-span-2"
-              error={!!fieldState.error}
-              helperText={fieldState.error?.message}
-              {...field}
-            />
-          )}
-        />
-
-        <Controller
-          name="summary"
-          control={control}
-          render={({ field, fieldState }) => (
-            <TextField
-              multiline
-              minRows={3}
-              maxRows={6}
               label={t<string>('builder.common.form.summary.label')}
               className="col-span-2"
               error={!!fieldState.error}
-              helperText={fieldState.error?.message || <MarkdownSupported />}
+              helperText={fieldState.error?.message}
               {...field}
             />
           )}
         />
 
-        <Controller
-          name="keywords"
-          control={control}
-          render={({ field, fieldState }) => (
-            <ArrayInput
-              label={t<string>('builder.common.form.keywords.label')}
-              value={field.value as string[]}
-              onChange={field.onChange}
-              errors={fieldState.error}
-              className="col-span-2"
-            />
-          )}
-        />
         <input type="submit" style={{ display: 'none' }} />
       </form>
     </BaseModal>
   );
 };
 
-export default ProjectModal;
+export default ProfessionalTrainingModal;

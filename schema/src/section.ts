@@ -1,26 +1,32 @@
-import { DateRange } from './atoms';
+// import { DateRange } from './atoms';
 import { Profile } from './basics';
 
 export type WorkExperience = {
   id?: string;
   name: string;
   position: string;
-  date?: DateRange;
+  date?: string;
   url?: string;
   summary?: string;
+  about? : string;
 };
 
 export type Education = {
   id?: string;
   institution: string;
   degree: string;
-  area?: string;
   score?: string;
-  date?: DateRange;
+  date?: string;
   url?: string;
   summary?: string;
-  courses?: string[];
+  courses?: string;
+  dop?: string;
 };
+
+export type ProfessionalTraining = {
+  id?: string;
+  summary?: string;
+}
 
 export type Award = {
   id?: string;
@@ -44,7 +50,7 @@ export type Volunteer = {
   id?: string;
   organization: string;
   position: string;
-  date?: DateRange;
+  date?: string;
   url?: string;
   summary?: string;
 };
@@ -83,7 +89,7 @@ export type Project = {
   id?: string;
   name: string;
   description: string;
-  date?: DateRange;
+  date?: string;
   url?: string;
   summary?: string;
   keywords?: string[];
@@ -102,7 +108,7 @@ export type Custom = {
   id?: string;
   title: string;
   subtitle?: string;
-  date?: DateRange;
+  date?: string;
   url?: string;
   level?: string;
   levelNum?: number;
@@ -114,6 +120,7 @@ export type ListItem =
   | Award
   | Certificate
   | Education
+  | ProfessionalTraining
   | Interest
   | Language
   | Profile
@@ -130,6 +137,7 @@ export type SectionType =
   | 'location'
   | 'profiles'
   | 'education'
+  | 'professionaltrainings'
   | 'awards'
   | 'certifications'
   | 'publications'

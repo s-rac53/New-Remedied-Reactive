@@ -127,24 +127,11 @@ const CertificateModal: React.FC = () => {
           name="date"
           control={control}
           render={({ field, fieldState }) => (
-            <DatePicker
-              openTo="year"
-              inputRef={field.ref}
+            <TextField
               label={t<string>('builder.common.form.date.label')}
-              value={dayjs(field.value)}
-              views={['year', 'month', 'day']}
-              slots={{
-                textField: (params) => (
-                  <TextField
-                    {...params}
-                    error={!!fieldState.error}
-                    helperText={fieldState.error?.message || params.inputProps?.placeholder}
-                  />
-                ),
-              }}
-              onChange={(date: dayjs.Dayjs | null) => {
-                date && dayjs(date).isValid() && field.onChange(dayjs(date).format('YYYY-MM-DD'));
-              }}
+              error={!!fieldState.error}
+              helperText={fieldState.error?.message}
+              {...field}
             />
           )}
         />

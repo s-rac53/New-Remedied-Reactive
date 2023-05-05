@@ -23,15 +23,10 @@ const defaultState: Partial<Resume> = {
     },
     name: '',
     phone: '',
-    summary: '',
     website: '',
-    location: {
-      address: '',
-      city: '',
-      country: '',
-      region: '',
-      postalCode: '',
-    },
+    location: '',
+    placeofbirth: '',
+    genderandnationality: '',
     profiles: [],
   },
   sections: {
@@ -48,6 +43,14 @@ const defaultState: Partial<Resume> = {
       name: 'Education',
       type: 'basic',
       columns: 2,
+      visible: true,
+      items: [],
+    },
+    professionaltrainings: {
+      id: 'professionaltrainings',
+      name: 'Professional Training',
+      type: 'basic',
+      columns: 1,
       visible: true,
       items: [],
     },
@@ -143,7 +146,7 @@ const defaultState: Partial<Resume> = {
     },
     layout: [
       [
-        ['work', 'education', 'projects', 'volunteer', 'references'],
+        ['work', 'education', 'projects', 'volunteer', 'references', 'professionaltrainings'],
         ['skills', 'interests', 'languages', 'awards', 'certifications', 'publications'],
       ],
     ],
