@@ -20,18 +20,12 @@ type FormData = Skill;
 const path: SectionPath = 'sections.skills';
 
 const defaultState: FormData = {
-  name: '',
-  level: '',
-  levelNum: 0,
-  keywords: [],
+  summary: '',
 };
 
 const schema = Joi.object<FormData>().keys({
   id: Joi.string(),
-  name: Joi.string().required(),
-  level: Joi.string().allow(''),
-  levelNum: Joi.number().min(0).max(10).required(),
-  keywords: Joi.array().items(Joi.string().optional()),
+  summary: Joi.string().required(),
 });
 
 const SkillModal: React.FC = () => {
@@ -90,79 +84,16 @@ const SkillModal: React.FC = () => {
     >
       <form className="my-2 grid grid-cols-2 gap-4" onSubmit={handleSubmit(onSubmit)}>
         <Controller
-          name="name"
+          name="summary"
           control={control}
           render={({ field, fieldState }) => (
             <TextField
               required
               autoFocus
-              label={t<string>('builder.common.form.name.label')}
+              label={t<string>('builder.common.form.summary.label')}
               error={!!fieldState.error}
               helperText={fieldState.error?.message}
               {...field}
-            />
-          )}
-        />
-
-        <Controller
-          name="level"
-          control={control}
-          render={({ field, fieldState }) => (
-            <TextField
-              label={t<string>('builder.common.form.level.label')}
-              error={!!fieldState.error}
-              helperText={fieldState.error?.message}
-              {...field}
-            />
-          )}
-        />
-
-        <Controller
-          name="levelNum"
-          control={control}
-          render={({ field }) => (
-            <div className="col-span-2">
-              <h4 className="mb-3 font-semibold">{t<string>('builder.common.form.levelNum.label')}</h4>
-
-              <div className="px-3">
-                <Slider
-                  {...field}
-                  marks={[
-                    {
-                      value: 0,
-                      label: 'Disable',
-                    },
-                    {
-                      value: 1,
-                      label: 'Beginner',
-                    },
-                    {
-                      value: 10,
-                      label: 'Expert',
-                    },
-                  ]}
-                  min={0}
-                  max={10}
-                  defaultValue={0}
-                  color="secondary"
-                  valueLabelDisplay="auto"
-                  aria-label={t<string>('builder.common.form.levelNum.label')}
-                />
-              </div>
-            </div>
-          )}
-        />
-
-        <Controller
-          name="keywords"
-          control={control}
-          render={({ field, fieldState }) => (
-            <ArrayInput
-              label={t<string>('builder.common.form.keywords.label')}
-              value={field.value}
-              onChange={field.onChange}
-              errors={fieldState.error}
-              className="col-span-2"
             />
           )}
         />

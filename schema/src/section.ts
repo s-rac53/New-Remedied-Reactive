@@ -28,19 +28,35 @@ export type ProfessionalTraining = {
   summary?: string;
 }
 
-export type Award = {
+export type VocationalTraining = {
   id?: string;
-  title: string;
-  awarder: string;
   date?: string;
-  url?: string;
+  name?: string;
+  organization?: string;
   summary?: string;
-};
+}
+
+export type EntranceExam = {
+  id?: string;
+  date?: string;
+  name?: string;
+  summary?: string;
+}
+
 
 export type Certificate = {
   id?: string;
   name: string;
   issuer: string;
+  date?: string;
+  url?: string;
+  summary?: string;
+};
+
+export type Award = {
+  id?: string;
+  title: string;
+  awarder: string;
   date?: string;
   url?: string;
   summary?: string;
@@ -66,33 +82,24 @@ export type Publication = {
 
 export type Skill = {
   id?: string;
-  name: string;
-  level?: string;
-  levelNum: number;
-  keywords?: string[];
+  summary: string;
 };
 
 export type Language = {
   id?: string;
   name: string;
   level: string;
-  levelNum: number;
 };
 
 export type Interest = {
   id?: string;
-  name: string;
-  keywords?: string[];
+  summary: string;
+  
 };
 
 export type Project = {
   id?: string;
-  name: string;
-  description: string;
-  date?: string;
-  url?: string;
   summary?: string;
-  keywords?: string[];
 };
 
 export type Reference = {
@@ -121,6 +128,8 @@ export type ListItem =
   | Certificate
   | Education
   | ProfessionalTraining
+  | VocationalTraining
+  | EntranceExam
   | Interest
   | Language
   | Profile
@@ -137,8 +146,10 @@ export type SectionType =
   | 'location'
   | 'profiles'
   | 'education'
-  | 'professionaltrainings'
   | 'awards'
+  | 'professionaltrainings'
+  | 'vocationaltrainings'
+  | 'entranceexams'
   | 'certifications'
   | 'publications'
   | 'skills'

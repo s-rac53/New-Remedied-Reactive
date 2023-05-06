@@ -1,17 +1,12 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import {
-  Award,
-  Certificate,
+
   Education,
-  ProfessionalTraining,
   Interest,
   Language,
   Project,
-  Publication,
-  Reference,
   Resume,
   Skill,
-  Volunteer,
   WorkExperience,
 } from '@reactive-resume/schema';
 import csv from 'csvtojson';
@@ -146,32 +141,7 @@ export class IntegrationsService {
         // pass through
       }
 
-      // Certifications
-      try {
-        const certificationsCSV = (await archive.entryData('Certifications.csv')).toString();
-        const certifications = await csv().fromString(certificationsCSV);
-        certifications.forEach((certification) => {
-          merge<Partial<Resume>, DeepPartial<Resume>>(resume, {
-            sections: {
-              certifications: {
-                items: [
-                  ...get(resume, 'sections.certifications.items', []),
-                  {
-                    id: uuidv4(),
-                    name: get(certification, 'Name'),
-                    issuer: get(certification, 'Authority'),
-                    url: get(certification, 'Url'),
-                    date: get(certification, 'Started On'),
-                  } as Certificate,
-                ],
-              },
-            },
-          });
-        });
-      } catch {
-        // pass through
-      }
-
+      
       // Languages
       try {
         const languagesCSV = (await archive.entryData('Languages.csv')).toString();
@@ -186,7 +156,6 @@ export class IntegrationsService {
                     id: uuidv4(),
                     name: get(language, 'Name'),
                     level: 'Beginner',
-                    levelNum: 5,
                   } as Language,
                 ],
               },
@@ -209,10 +178,7 @@ export class IntegrationsService {
                   ...get(resume, 'sections.projects.items', []),
                   {
                     id: uuidv4(),
-                    name: get(project, 'Title'),
-                    description: get(project, 'Description'),
-                    url: get(project, 'Url'),
-                    date: get(project, 'Date'),
+                    summary: get(project, 'Summary'),
                   } as Project,
                 ],
               },
@@ -235,10 +201,7 @@ export class IntegrationsService {
                   ...get(resume, 'sections.skills.items', []),
                   {
                     id: uuidv4(),
-                    name: get(skill, 'Name'),
-                    level: 'Beginner',
-                    levelNum: 5,
-                    keywords: [],
+                    summary: get(skill, 'Summary'),
                   } as Skill,
                 ],
               },
@@ -338,31 +301,7 @@ export class IntegrationsService {
         // pass through
       }
 
-      // Volunteer
-      try {
-        const volunteer: any[] = get(jsonResume, 'volunteer', []);
-        volunteer.forEach((item) => {
-          merge<Partial<Resume>, DeepPartial<Resume>>(resume, {
-            sections: {
-              volunteer: {
-                items: [
-                  ...get(resume, 'sections.volunteer.items', []),
-                  {
-                    id: uuidv4(),
-                    organization: get(item, 'organization'),
-                    position: get(item, 'position'),
-                    summary: get(item, 'summary'),
-                    url: get(item, 'url'),
-                    date: get(item, 'Date'),
-                  } as Volunteer,
-                ],
-              },
-            },
-          });
-        });
-      } catch {
-        // pass through
-      }
+      
 
       // Education
       try {
@@ -392,79 +331,9 @@ export class IntegrationsService {
         // pass through
       }
 
-      // Awards
-      try {
-        const awards: any[] = get(jsonResume, 'awards', []);
-        awards.forEach((award) => {
-          merge<Partial<Resume>, DeepPartial<Resume>>(resume, {
-            sections: {
-              awards: {
-                items: [
-                  ...get(resume, 'sections.awards.items', []),
-                  {
-                    id: uuidv4(),
-                    title: get(award, 'title'),
-                    awarder: get(award, 'awarder'),
-                    summary: get(award, 'summary'),
-                    url: get(award, 'url'),
-                    date: get(award, 'date'),
-                  } as Award,
-                ],
-              },
-            },
-          });
-        });
-      } catch {
-        // pass through
-      }
+      
 
-      //Professional Training
-      try {
-        const professionaltrainings: any[] = get(jsonResume, 'professionaltrainings', []);
-        professionaltrainings.forEach((professionaltrainings) => {
-          merge<Partial<Resume>, DeepPartial<Resume>>(resume, {
-            sections: {
-              professionaltrainings: {
-                items: [
-                  ...get(resume, 'sections.professionaltrainings.items', []),
-                  {
-                    id: uuidv4(),
-                    summary: get(professionaltrainings, 'summary'),
-                  } as ProfessionalTraining,
-                ],
-              },
-            },
-          });
-        });
-      } catch {
-        // pass through
-      }
-
-      // Publications
-      try {
-        const publications: any[] = get(jsonResume, 'publications', []);
-        publications.forEach((publication) => {
-          merge<Partial<Resume>, DeepPartial<Resume>>(resume, {
-            sections: {
-              publications: {
-                items: [
-                  ...get(resume, 'sections.publications.items', []),
-                  {
-                    id: uuidv4(),
-                    name: get(publication, 'name'),
-                    publisher: get(publication, 'publisher'),
-                    summary: get(publication, 'summary'),
-                    url: get(publication, 'url'),
-                    date: get(publication, 'releaseDate'),
-                  } as Publication,
-                ],
-              },
-            },
-          });
-        });
-      } catch {
-        // pass through
-      }
+      
 
       // Skills
       try {
@@ -477,10 +346,7 @@ export class IntegrationsService {
                   ...get(resume, 'sections.skills.items', []),
                   {
                     id: uuidv4(),
-                    name: get(skill, 'name'),
-                    level: get(skill, 'level'),
-                    levelNum: 5,
-                    keywords: get(skill, 'keywords', []),
+                    summary: get(skill, 'summary'),
                   } as Skill,
                 ],
               },
@@ -504,7 +370,6 @@ export class IntegrationsService {
                     id: uuidv4(),
                     name: get(language, 'language'),
                     level: get(language, 'fluency'),
-                    levelNum: 5,
                   } as Language,
                 ],
               },
@@ -526,8 +391,7 @@ export class IntegrationsService {
                   ...get(resume, 'sections.interests.items', []),
                   {
                     id: uuidv4(),
-                    name: get(interest, 'name'),
-                    keywords: get(interest, 'keywords', []),
+                    summary: get(interest, 'summary'),
                   } as Interest,
                 ],
               },
@@ -538,29 +402,7 @@ export class IntegrationsService {
         // pass through
       }
 
-      // References
-      try {
-        const references: any[] = get(jsonResume, 'references', []);
-        references.forEach((reference) => {
-          merge<Partial<Resume>, DeepPartial<Resume>>(resume, {
-            sections: {
-              references: {
-                items: [
-                  ...get(resume, 'sections.references.items', []),
-                  {
-                    id: uuidv4(),
-                    name: get(reference, 'name'),
-                    relationship: get(reference, 'reference'),
-                  } as Reference,
-                ],
-              },
-            },
-          });
-        });
-      } catch {
-        // pass through
-      }
-
+      
       // Projects
       try {
         const projects: any[] = get(jsonResume, 'projects', []);
@@ -572,12 +414,7 @@ export class IntegrationsService {
                   ...get(resume, 'sections.projects.items', []),
                   {
                     id: uuidv4(),
-                    name: get(project, 'name'),
-                    description: get(project, 'description'),
                     summary: get(project, 'highlights', []).join(', '),
-                    keywords: get(project, 'keywords'),
-                    url: get(project, 'url'),
-                    date: get(project, 'Date'),
                   } as Project,
                 ],
               },
@@ -726,79 +563,7 @@ export class IntegrationsService {
         // pass through
       }
 
-      // Awards
-      try {
-        const awards: any[] = get(jsonResume, 'awards.items', []);
-        awards.forEach((award) => {
-          merge<Partial<Resume>, DeepPartial<Resume>>(resume, {
-            sections: {
-              awards: {
-                items: [
-                  ...get(resume, 'sections.awards.items', []),
-                  {
-                    id: uuidv4(),
-                    title: get(award, 'title'),
-                    awarder: get(award, 'awarder'),
-                    summary: get(award, 'summary'),
-                    date: get(award, 'date'),
-                  } as Award,
-                ],
-              },
-            },
-          });
-        });
-      } catch {
-        // pass through
-      }
-
-      // Professional Training
-      try {
-        const professionaltrainings: any[] = get(jsonResume, 'professionaltrainings.items', []);
-        professionaltrainings.forEach((professionaltrainings) => {
-          merge<Partial<Resume>, DeepPartial<Resume>>(resume, {
-            sections: {
-              professionaltrainings: {
-                items: [
-                  ...get(resume, 'sections.professionaltrainings.items', []),
-                  {
-                    id: uuidv4(),
-                    summary: get(professionaltrainings, 'summary'),
-                    
-                  } as ProfessionalTraining,
-                ],
-              },
-            },
-          });
-        });
-      } catch {
-        // pass through
-      }
-
-
-      // Certifications
-      try {
-        const certifications: any[] = get(jsonResume, 'certifications.items', []);
-        certifications.forEach((certificate) => {
-          merge<Partial<Resume>, DeepPartial<Resume>>(resume, {
-            sections: {
-              certifications: {
-                items: [
-                  ...get(resume, 'sections.certifications.items', []),
-                  {
-                    id: uuidv4(),
-                    name: get(certificate, 'title'),
-                    issuer: get(certificate, 'issuer'),
-                    summary: get(certificate, 'summary'),
-                    date: get(certificate, 'date'),
-                  } as Certificate,
-                ],
-              },
-            },
-          });
-        });
-      } catch {
-        // pass through
-      }
+      
 
       // Skills
       try {
@@ -811,9 +576,7 @@ export class IntegrationsService {
                   ...get(resume, 'sections.skills.items', []),
                   {
                     id: uuidv4(),
-                    name: get(skill, 'name'),
-                    level: get(skill, 'level'),
-                    levelNum: 5,
+                    summary: get(skill, 'summary'),
                   } as Skill,
                 ],
               },
@@ -837,7 +600,6 @@ export class IntegrationsService {
                     id: uuidv4(),
                     name: get(language, 'name'),
                     level: get(language, 'fluency'),
-                    levelNum: 5,
                   } as Language,
                 ],
               },
@@ -859,8 +621,8 @@ export class IntegrationsService {
                   ...get(resume, 'sections.interests.items', []),
                   {
                     id: uuidv4(),
-                    name: get(hobby, 'name'),
-                    keywords: get(hobby, 'keywords', []),
+                    summary: get(hobby, 'summary'),
+                    
                   } as Interest,
                 ],
               },
@@ -871,32 +633,7 @@ export class IntegrationsService {
         // pass through
       }
 
-      // References
-      try {
-        const references: any[] = get(jsonResume, 'references.items', []);
-        references.forEach((reference) => {
-          merge<Partial<Resume>, DeepPartial<Resume>>(resume, {
-            sections: {
-              references: {
-                items: [
-                  ...get(resume, 'sections.references.items', []),
-                  {
-                    id: uuidv4(),
-                    name: get(reference, 'name'),
-                    relationship: get(reference, 'position'),
-                    phone: get(reference, 'phone'),
-                    email: get(reference, 'email'),
-                    summary: get(reference, 'summary'),
-                  } as Reference,
-                ],
-              },
-            },
-          });
-        });
-      } catch {
-        // pass through
-      }
-
+      
       // Projects
       try {
         const projects: any[] = get(jsonResume, 'projects.items', []);
@@ -908,11 +645,7 @@ export class IntegrationsService {
                   ...get(resume, 'sections.projects.items', []),
                   {
                     id: uuidv4(),
-                    name: get(project, 'title'),
                     summary: get(project, 'summary'),
-                    keywords: get(project, 'keywords'),
-                    url: get(project, 'link'),
-                    date: get(project, 'startDate'),
                   } as Project,
                 ],
               },

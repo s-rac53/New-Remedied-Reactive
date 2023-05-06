@@ -46,14 +46,6 @@ const defaultState: Partial<Resume> = {
       visible: true,
       items: [],
     },
-    professionaltrainings: {
-      id: 'professionaltrainings',
-      name: 'Professional Training',
-      type: 'basic',
-      columns: 1,
-      visible: true,
-      items: [],
-    },
     awards: {
       id: 'awards',
       name: 'Awards',
@@ -62,6 +54,33 @@ const defaultState: Partial<Resume> = {
       visible: true,
       items: [],
     },
+    professionaltrainings: {
+      id: 'professionaltrainings',
+      name: 'Professional Training',
+      type: 'basic',
+      columns: 1,
+      visible: true,
+      items: [],
+    },
+
+    vocationaltrainings: {
+      id: 'vocationaltrainings',
+      name: 'Vocational Training',
+      type: 'basic',
+      columns: 1,
+      visible: true,
+      items: [],
+    },
+
+    entranceexams: {
+      id: 'entranceexams',
+      name: 'Entrance Exam',
+      type: 'basic',
+      columns: 1,
+      visible: true,
+      items: [],
+    },
+
     certifications: {
       id: 'certifications',
       name: 'Certifications',
@@ -90,7 +109,7 @@ const defaultState: Partial<Resume> = {
       id: 'languages',
       name: 'Languages',
       type: 'basic',
-      columns: 2,
+      columns: 1,
       visible: true,
       items: [],
     },
@@ -98,7 +117,7 @@ const defaultState: Partial<Resume> = {
       id: 'interests',
       name: 'Interests',
       type: 'basic',
-      columns: 2,
+      columns: 1,
       visible: true,
       items: [],
     },
@@ -122,7 +141,7 @@ const defaultState: Partial<Resume> = {
       id: 'projects',
       name: 'Projects',
       type: 'basic',
-      columns: 2,
+      columns: 1,
       visible: true,
       items: [],
     },
@@ -146,8 +165,8 @@ const defaultState: Partial<Resume> = {
     },
     layout: [
       [
-        ['work', 'education', 'projects', 'volunteer', 'references', 'professionaltrainings'],
-        ['skills', 'interests', 'languages', 'awards', 'certifications', 'publications'],
+        ['work', 'education', 'projects', 'volunteer', 'references', 'professionaltrainings', 'vocationaltrainings'],
+        ['skills', 'interests', 'languages', 'certifications','awards', 'publications'],
       ],
     ],
     template: 'kakuna',

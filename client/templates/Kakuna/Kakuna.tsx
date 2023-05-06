@@ -14,6 +14,7 @@ const Kakuna: React.FC<PageProps> = ({ page }) => {
 
   // const { summary } = useAppSelector((state) => state.resume.present.basics);
   const layout: string[][] = useAppSelector((state) => state.resume.present.metadata.layout[page]);
+  console.log(layout[1]);
 
   return (
     <div className={styles.page}>
@@ -26,6 +27,7 @@ const Kakuna: React.FC<PageProps> = ({ page }) => {
 
       <div className={styles.container}>
         <div className={styles.main}>{layout[0].map((key) => getSectionById(key, Section))}</div>
+        
         <div className={styles.sidebar}>{layout[1].map((key) => getSectionById(key, Section))}</div>
       </div>
     </div>

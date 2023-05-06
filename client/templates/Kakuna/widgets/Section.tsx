@@ -53,8 +53,10 @@ const Section: React.FC<SectionProps> = ({
             summary: string = get(item, 'summary', ''),
             about: string = get(item, 'about', ''), 
             levelNum: number = get(item, 'levelNum', 0),
+            // name: string = get(item, 'name', ''),
             date = get(item, 'date', ''),
             dop = get(item,'dop', ''),
+            organization = get(item,'organization',''),
             courses = get(item,'courses','');
 
           return (
@@ -87,11 +89,15 @@ const Section: React.FC<SectionProps> = ({
 
               {date && <div className="opacity-50">({date})</div>}
 
+              {organization && <div><em>{organization}</em></div>}
+
               {courses && <div className="inline-flex justify-center"> {courses} </div>}
 
               {summary && <Markdown>{summary}</Markdown>}
 
               {about && <Markdown>{about}</Markdown>}
+
+              {/* {name && <div className="inline-flex items-center"> {name} </div>} */}
 
               {url && (
                 <div className="inline-flex justify-center">

@@ -20,14 +20,12 @@ type FormData = Interest;
 const path: SectionPath = 'sections.interests';
 
 const defaultState: FormData = {
-  name: '',
-  keywords: [],
+  summary: '',
 };
 
 const schema = Joi.object<FormData>().keys({
   id: Joi.string(),
-  name: Joi.string().required(),
-  keywords: Joi.array().items(Joi.string().optional()),
+  summary: Joi.string().required(),
 });
 
 const InterestModal: React.FC = () => {
@@ -85,32 +83,19 @@ const InterestModal: React.FC = () => {
       footerChildren={<Button onClick={handleSubmit(onSubmit)}>{isEditMode ? editText : addText}</Button>}
     >
       <form className="my-2 grid grid-cols-2 gap-4" onSubmit={handleSubmit(onSubmit)}>
-        <Controller
-          name="name"
+      <Controller
+          name="summary"
           control={control}
           render={({ field, fieldState }) => (
             <TextField
-              required
-              autoFocus
-              label={t<string>('builder.common.form.name.label')}
+              multiline
+              minRows={3}
+              maxRows={6}
+              label={t<string>('builder.common.form.summary.label')}
               className="col-span-2"
               error={!!fieldState.error}
-              helperText={fieldState.error?.message}
+              helperText={fieldState.error?.message || <MarkdownSupported />}
               {...field}
-            />
-          )}
-        />
-
-        <Controller
-          name="keywords"
-          control={control}
-          render={({ field, fieldState }) => (
-            <ArrayInput
-              label={t<string>('builder.common.form.keywords.label')}
-              value={field.value as string[]}
-              onChange={field.onChange}
-              errors={fieldState.error}
-              className="col-span-2"
             />
           )}
         />

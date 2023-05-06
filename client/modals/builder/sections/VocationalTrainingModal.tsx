@@ -1,9 +1,7 @@
 import { joiResolver } from '@hookform/resolvers/joi';
 import { Add, DriveFileRenameOutline } from '@mui/icons-material';
 import { Button, TextField } from '@mui/material';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { Project, SectionPath } from '@reactive-resume/schema';
-import dayjs from 'dayjs';
+import { VocationalTraining, SectionPath } from '@reactive-resume/schema';
 import Joi from 'joi';
 import get from 'lodash/get';
 import isEmpty from 'lodash/isEmpty';
@@ -13,26 +11,28 @@ import { Controller, useForm } from 'react-hook-form';
 
 import ArrayInput from '@/components/shared/ArrayInput';
 import BaseModal from '@/components/shared/BaseModal';
-import MarkdownSupported from '@/components/shared/MarkdownSupported';
-import { VALID_URL_REGEX } from '@/constants/index';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { setModalState } from '@/store/modal/modalSlice';
 import { addItem, editItem } from '@/store/resume/resumeSlice';
 
-type FormData = Project;
+type FormData = VocationalTraining;
 
-const path: SectionPath = 'sections.projects';
+const path: SectionPath = 'sections.vocationaltrainings';
 
 const defaultState: FormData = {
+  date: '',
+  organization: '',  
   summary: '',
 };
 
 const schema = Joi.object<FormData>().keys({
   id: Joi.string(),
-  summary: Joi.string().allow(''),
+  date: Joi.string().allow(),
+  organization: Joi.string().allow(),
+  summary: Joi.string().allow(),
 });
 
-const ProjectModal: React.FC = () => {
+const VocationalTrainingModal: React.FC = () => {
   const { t } = useTranslation();
 
   const dispatch = useAppDispatch();
@@ -88,28 +88,52 @@ const ProjectModal: React.FC = () => {
     >
       <form className="my-2 grid grid-cols-2 gap-4" onSubmit={handleSubmit(onSubmit)}>
 
-        <Controller
-          name="summary"
+      <Controller
+          name="date"
           control={control}
           render={({ field, fieldState }) => (
             <TextField
-              multiline
-              minRows={3}
-              maxRows={6}
-              label={t<string>('builder.common.form.summary.label')}
-              className="col-span-2"
+              label={t<string>('builder.common.form.date.label')}
               error={!!fieldState.error}
-              helperText={fieldState.error?.message || <MarkdownSupported />}
+              helperText={fieldState.error?.message}
               {...field}
             />
           )}
         />
 
-        
+        <Controller
+          name="organization"
+          control={control}
+          render={({ field, fieldState }) => (
+            <TextField
+              label={t<string>('builder.common.form.organization.label')}
+              error={!!fieldState.error}
+              helperText={fieldState.error?.message}
+              {...field}
+            />
+          )}
+        />
+
+        <Controller
+          name="summary"
+          control={control}
+          render={({ field, fieldState }) => (
+            <TextField
+              required
+              autoFocus
+              label={t<string>('builder.common.form.summary.label')}
+              className="col-span-2"
+              error={!!fieldState.error}
+              helperText={fieldState.error?.message}
+              {...field}
+            />
+          )}
+        />
+
         <input type="submit" style={{ display: 'none' }} />
       </form>
     </BaseModal>
   );
 };
 
-export default ProjectModal;
+export default VocationalTrainingModal;

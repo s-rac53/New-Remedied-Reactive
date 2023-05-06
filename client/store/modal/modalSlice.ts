@@ -33,6 +33,8 @@ const initialState: Record<ModalName, ModalState> = {
   'builder.sections.work': { open: false },
   'builder.sections.education': { open: false },
   'builder.sections.professionaltrainings': { open: false },
+  'builder.sections.vocationaltrainings': { open: false },
+  'builder.sections.entranceexams': { open: false },
   'builder.sections.awards': { open: false },
   'builder.sections.certifications': { open: false },
   'builder.sections.publications': { open: false },

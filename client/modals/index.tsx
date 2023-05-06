@@ -9,11 +9,13 @@ import LoginModal from './auth/LoginModal';
 import RegisterModal from './auth/RegisterModal';
 import ResetPasswordModal from './auth/ResetPasswordModal';
 import UserProfileModal from './auth/UserProfileModal';
-import AwardModal from './builder/sections/AwardModal';
 import CertificateModal from './builder/sections/CertificateModal';
 import CustomModal from './builder/sections/CustomModal';
+import AwardModal from './builder/sections/AwardModal';
 import EducationModal from './builder/sections/EducationModal';
 import ProfessionalTrainingModal from './builder/sections/ProfessionalTrainingModal';
+import VocationalTrainingModal from './builder/sections/VocationalTrainingModal';
+import EntranceExamModal from './builder/sections/EntranceExamModal';
 import InterestModal from './builder/sections/InterestModal';
 import LanguageModal from './builder/sections/LanguageModal';
 import ProfileModal from './builder/sections/ProfileModal';
@@ -65,6 +67,8 @@ const ModalWrapper: React.FC = () => {
       <WorkModal />
       <EducationModal />
       <ProfessionalTrainingModal />
+      < VocationalTrainingModal />
+      <EntranceExamModal />
       <AwardModal />
       <CertificateModal />
       <PublicationModal />

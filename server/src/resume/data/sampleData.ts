@@ -110,34 +110,10 @@ const sampleData: Partial<Resume> = {
       items: [
         {
           id: 'e27660b2-2b0f-48b0-9b04-3597f0282d06',
-          name: 'Frontend Web Development',
-          level: 'Expert',
-          keywords: ['ReactJS', 'HTML/CSS', 'jQuery', 'PHP'],
-          levelNum: 10,
-        },
-        {
-          name: 'Backend Development',
-          level: 'Novice',
-          levelNum: 8,
-          keywords: ['NodeJS', 'Springboot', 'Python/Flask', 'Postman'],
-          id: '2f98e07e-21f7-4b40-81e3-4cf529d43339',
-        },
-        {
-          id: 'bf4253f2-7829-432c-a1d5-07446e7ae873',
-          name: 'Adobe Creative Cloud',
-          level: 'Novice',
-          keywords: ['Photoshop', 'Illustrator', 'InDesign', 'Fireworks'],
-          levelNum: 8,
-        },
-        {
-          id: '0b4a6206-7a2b-47a4-b71d-59c24ceee219',
-          name: 'Content Management Systems',
-          level: 'Intermediate',
-          keywords: ['Wordpress', 'Joomla', 'Mailchimp'],
-          levelNum: 6,
+          summary: 'Frontend Web Development, Backend Development, Adobe Creative Cloud, Content Management Systems',
         },
       ],
-      columns: 2,
+      columns: 1,
       visible: true,
     },
     projects: {
@@ -146,25 +122,11 @@ const sampleData: Partial<Resume> = {
       type: 'basic',
       items: [
         {
-          name: 'Fintech News Inc.',
-          description: 'Backend Developer',
-          date: '2015-09-01',
-          url: '',
-          summary:
-            '- Created a content management system serving as a client interface that reduced download times by 30%.\n- Developed new admin panel, which improved internal operating efficiency by over 40%.\n- Created comprehensive testing regime using RSpec to ensure bug-free code.\n- Rebuilt entire website with up to date technologies and frameworks.',
-          keywords: ['Python', 'PHP', 'Ruby', 'Javascript'],
-          id: '8c12add5-605a-449f-a8a6-e7625c702e60',
-        },
-        {
-          name: 'Systron Solutions, San Francisco, CA',
-          description: 'Inside Sales Associate',
-          date: '2015-09-01',
-          url: '',
           summary:
             '- Performed an average of 90+ cold calls daily creating three new qualified prospects exceeding company average by 10%.\n- Managed a $1 million pipeline that supported the creation of 50 new accounts.\n- Sold SaaS and Cloud offering to key accounts including California State University, Ace Athetics and BMI, succeeding in reducing back-up time by 50%.\n\n**Key Projects:** Worked with IT team to create a new web-based leads-generating system, resulting in closed sales increasing by 18% contributing to a $1.5 million increase in profits.',
-          keywords: ['Sales & Marketing', 'Chain Management'],
-          id: 'ec58bb49-a6b1-49ed-9ff6-860a44663ed7',
+          id: '8c12add5-605a-449f-a8a6-e7625c702e60',
         },
+        
       ],
       columns: 1,
       visible: true,
@@ -215,33 +177,62 @@ const sampleData: Partial<Resume> = {
       visible: true,
     },
 
+    vocationaltrainings: {
+      id: 'vocationaltrainings',
+      name: 'Vocational Training',
+      type: 'basic',
+      items: [
+        {
+          id: 'vfgr5t68-e12f-b65e-b147-uhn6i1c150db',
+          date: '12-03-2018',
+          organization: 'HAL pvt ltd',
+          summary: 'Good college, Lorem ipsum dolor sit amet, **consectetur adipiscing elit.** Nam scelerisque ac metus sit amet tempor. Sed luctus dui fermentum aliquet dapibus.',    
+        },
+        {
+          id: '98t4gt68-a12f-g55e-hg57-ac7li1c150db',
+          date: '13-04-2019',
+          organization: 'IBM pvt ltd',
+          summary: 'Good college, Lorem ipsum dolor sit amet, **consectetur adipiscing elit.** Nam scelerisque ac metus sit amet tempor. Sed luctus dui fermentum aliquet dapibus.',    
+        },
+      ],
+      columns: 1,
+      visible: true,
+    },
+
+    entranceexams: {
+      id: 'entranceexams',
+      name: 'Entrance Exams',
+      type: 'basic',
+      items: [
+        {
+          id: 'vfgr5t68-e12f-b65e-b147-uhn6i1c150db',
+          date: '12-03-2018',
+          organization: 'GRE',
+          summary: 'GRE 317 (V 150, Q 167, AWA 4.0)',    
+        },
+        {
+          id: '98t4gt68-a12f-g55e-hg57-ac7li1c150db',
+          date: '13-04-2019',
+          organization: 'GMAT',
+          summary: 'GMAT 317 (V 150, Q 167, AWA 4.0)',    
+        },
+      ],
+      columns: 2,
+      visible: true,
+    },
+
+
     interests: {
       id: 'interests',
       name: 'Interests',
       type: 'basic',
       items: [
         {
-          name: 'Video Games',
-          keywords: ['FIFA', 'Age of Empires'],
+          summary: 'Video Games, Football, Mindfulness, Artificial Intelligence',
           id: 'ddebb0e1-0a49-4ca6-be8a-956f10f62307',
         },
-        {
-          name: 'Football',
-          keywords: ['Manchester United', 'Los Angeles Rams'],
-          id: '2df59b01-8dde-40d5-b3da-f5f5e698e8fa',
-        },
-        {
-          name: 'Mindfulness',
-          keywords: ['Yoga/Meditation', 'Hiking'],
-          id: 'dc1bb429-1baf-4a0c-80ba-4d7a24f66e52',
-        },
-        {
-          name: 'Artificial Intelligence',
-          keywords: ['Machine Learning', 'GPT-3'],
-          id: '9939e616-9f03-4ec0-bb8e-25183925c7fc',
-        },
       ],
-      columns: 2,
+      columns: 1,
       visible: true,
     },
     languages: {
@@ -252,17 +243,15 @@ const sampleData: Partial<Resume> = {
         {
           name: 'English',
           level: 'Native',
-          levelNum: 10,
           id: 'dd9eb2b8-2956-463b-b0b1-0ffef84f9fc2',
         },
         {
           name: 'German',
           level: 'B1 (Intermediate)',
-          levelNum: 6,
           id: '6cf99d85-4efc-4ff8-9a7f-e76abd2d2857',
         },
       ],
-      columns: 2,
+      columns: 1,
       visible: true,
     },
     volunteer: {
@@ -419,13 +408,13 @@ const sampleData: Partial<Resume> = {
     layout: [
       [
         ['work', 'education'],
-        ['publications', 'volunteer'],
+        [],
       ],
       [
-        ['skills', '2d47a563-d0a0-4275-af18-fea3ba6b57b4', 'awards'],
-        ['certifications', 'interests', 'languages'],
+        ['skills', '2d47a563-d0a0-4275-af18-fea3ba6b57b4', 'languages','entranceexams'],
+        [ 'interests','vocationaltrainings'],
       ],
-      [['projects','professionaltrainings'], ['references']],
+      [['projects','professionaltrainings'],[]],
     ],
     template: 'kakuna',
     typography: {

@@ -21,14 +21,12 @@ const path: SectionPath = 'sections.languages';
 const defaultState: FormData = {
   name: '',
   level: '',
-  levelNum: 0,
 };
 
 const schema = Joi.object<FormData>().keys({
   id: Joi.string(),
   name: Joi.string().required(),
   level: Joi.string().required(),
-  levelNum: Joi.number().min(0).max(10).required(),
 });
 
 const LanguageModal: React.FC = () => {
@@ -115,41 +113,6 @@ const LanguageModal: React.FC = () => {
           )}
         />
 
-        <Controller
-          name="levelNum"
-          control={control}
-          render={({ field }) => (
-            <div className="col-span-2">
-              <h4 className="mb-3 font-semibold">{t<string>('builder.common.form.levelNum.label')}</h4>
-
-              <div className="px-10">
-                <Slider
-                  {...field}
-                  marks={[
-                    {
-                      value: 0,
-                      label: 'Disable',
-                    },
-                    {
-                      value: 1,
-                      label: 'Beginner',
-                    },
-                    {
-                      value: 10,
-                      label: 'Expert',
-                    },
-                  ]}
-                  min={0}
-                  max={10}
-                  defaultValue={0}
-                  color="secondary"
-                  valueLabelDisplay="auto"
-                  aria-label={t<string>('builder.common.form.levelNum.label')}
-                />
-              </div>
-            </div>
-          )}
-        />
         <input type="submit" style={{ display: 'none' }} />
       </form>
     </BaseModal>
