@@ -14,7 +14,7 @@ const Kakuna: React.FC<PageProps> = ({ page }) => {
 
   // const { summary } = useAppSelector((state) => state.resume.present.basics);
   const layout: string[][] = useAppSelector((state) => state.resume.present.metadata.layout[page]);
-  console.log(layout[1]);
+
 
   return (
     <div className={styles.page}>

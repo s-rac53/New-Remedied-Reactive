@@ -87,6 +87,47 @@ export const left: SidebarSection[] = [
     ),
   },
   {
+    id: 'professionaltrainings',
+    icon: <School />,
+    component: (
+      <Section
+        type={'professionaltrainings'}
+        path="sections.professionaltrainings"
+        titleKey="summary"
+        isEditable
+        isHideable
+      />
+    ),
+  },
+  {
+    id: 'vocationaltrainings',
+    icon: <School />,
+    component: (
+      <Section
+        type={'vocationaltrainings'}
+        path="sections.vocationaltrainings"
+        titleKey="organization"
+        subtitleKey="date"
+        isEditable
+        isHideable
+      />
+    ),
+  },
+  {
+    id: 'entranceexams',
+    icon: <School />,
+    component: (
+      <Section
+        type={'entranceexams'}
+        path="sections.entranceexams"
+        titleKey="name"
+        subtitleKey="date"
+        isEditable
+        isHideable
+      />
+    ),
+  },
+  {
     id: 'awards',
     icon: <EmojiEvents />,
     component: (

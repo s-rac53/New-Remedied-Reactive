@@ -45,6 +45,9 @@ const LeftSidebar = () => {
     }
   };
 
+  console.log("Item");
+  console.log(SectionRecord);
+
   const handleAddSection = () => {
     const newSection: SectionRecord = {
       name: 'Custom Section',
@@ -65,7 +68,7 @@ const LeftSidebar = () => {
       const component = (item as any).component;
       const type = component.props.type;
       const addMore = !!component.props.addMore;
-
+      
       sectionsComponents.push(
         <section key={id} id={id}>
           {component}

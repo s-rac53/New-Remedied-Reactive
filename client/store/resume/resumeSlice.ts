@@ -7,6 +7,8 @@ import pick from 'lodash/pick';
 import set from 'lodash/set';
 import { v4 as uuidv4 } from 'uuid';
 
+console.log(SectionType);
+
 import { getSectionsByType } from '@/config/sections';
 
 type SetResumeStatePayload = { path: string; value: unknown };

@@ -1,5 +1,5 @@
 import { Add } from '@mui/icons-material';
-import { Button } from '@mui/material';
+import { Button, Modal } from '@mui/material';
 import { ListItem, Section as SectionRecord, SectionType } from '@reactive-resume/schema';
 import clsx from 'clsx';
 import get from 'lodash/get';
@@ -11,8 +11,9 @@ import List from '@/components/shared/List';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { ModalName, setModalState } from '@/store/modal/modalSlice';
 import { duplicateItem, duplicateSection } from '@/store/resume/resumeSlice';
-
 import SectionSettings from './SectionSettings';
+
+
 
 type Props = {
   path: `sections.${string}`;
@@ -27,6 +28,8 @@ type Props = {
   isDuplicated?: boolean;
 };
 
+
+
 const Section: React.FC<Props> = ({
   path,
   name = 'Section Name',
@@ -40,6 +43,7 @@ const Section: React.FC<Props> = ({
   isDuplicated = false,
 }) => {
   const { t } = useTranslation();
+  
 
   const dispatch = useAppDispatch();
 
@@ -69,6 +73,7 @@ const Section: React.FC<Props> = ({
   const handleDuplicate = (item: ListItem) => dispatch(duplicateItem({ path: `${path}.items`, value: item }));
 
   const handleDuplicateSection = () => {
+    
     const newSection: SectionRecord = {
       name: `${heading}`,
       type: type,
@@ -77,9 +82,13 @@ const Section: React.FC<Props> = ({
       items: [],
       isDuplicated: true,
     };
+    console.log("Heading");
+    console.log(heading);
 
     dispatch(duplicateSection({ value: newSection, type }));
   };
+
+
 
   return (
     <>
