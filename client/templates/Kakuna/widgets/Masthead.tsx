@@ -11,7 +11,7 @@ import { addHttp, getPhotoClassNames } from '@/utils/template';
 
 const Masthead = () => {
   const dateFormat: string = useAppSelector((state) => get(state.resume.present, 'metadata.date.format'));
-  const { name, photo, email, phone, website, birthdate, headline, location, placeofbirth, genderandnationality, profiles } = useAppSelector(
+  const { name, photo, email, phone, birthdate, location, placeofbirth, genderandnationality } = useAppSelector(
     (state) => state.resume.present.basics
   );
 
@@ -31,35 +31,47 @@ const Masthead = () => {
 
       <div>
         <h1 className="mb-1">{name}</h1>
-        <p className="opacity-75">{headline}</p>
+        {/* <p className="opacity-75">{headline}</p> */}
       </div>
 
       <div className="flex flex-wrap justify-center gap-3">
-        <DataDisplay icon={<Cake />}>{formatDateString(birthdate, dateFormat)}</DataDisplay>
-
-        <DataDisplay icon={<Email />} link={`mailto:${email}`}>
+        <div className="text-xs"><p><b>D.O.B:</b></p>
+         <DataDisplay ><b>{birthdate}</b></DataDisplay>
+        </div>
+        <div className="text-xs"><p><b>EMAIL:</b></p>
+         <DataDisplay link={`mailto:${email}`}>
           {email}
-        </DataDisplay>
+         </DataDisplay>
+        </div> 
 
-        <DataDisplay icon={<Phone />} link={`tel:${phone}`}>
+        <div className="text-xs"><p><b>PHONE:</b></p>
+         <DataDisplay link={`tel:${phone}`}>
           {phone}
-        </DataDisplay>
+         </DataDisplay>
+        </div> 
 
-        <DataDisplay icon={<Public />} link={addHttp(website)}>
+        <div className="text-xs"><p><b>PLACE OF BIRTH:</b></p>
+         <DataDisplay ><b>{placeofbirth}</b></DataDisplay>
+        </div> 
+        
+        <div className="text-xs"><p><b>GENDER AND NATIONALITY:</b></p>
+         <DataDisplay ><b>{genderandnationality}</b></DataDisplay>
+        </div> 
+
+        {/* <DataDisplay icon={<Public />} link={addHttp(website)}>
           {website}
-        </DataDisplay>
+        </DataDisplay> */}
+        <div className="text-xs"><p><b>ADDRESS:</b></p>
+         <DataDisplay ><b>{location}</b></DataDisplay>
+        </div>
 
-        <DataDisplay icon={<Room />}>{location}</DataDisplay>
+       
 
-        <DataDisplay icon={<Room />}><b>{placeofbirth}</b></DataDisplay>
-
-        <DataDisplay icon={<Room />}><b>{genderandnationality}</b></DataDisplay>
-
-        {profiles.map(({ id, username, network, url }) => (
+        {/* {profiles.map(({ id, username, network, url }) => (
           <DataDisplay key={id} icon={getProfileIcon(network)} link={url && addHttp(url)}>
             {username}
           </DataDisplay>
-        ))}
+        ))} */}
       </div>
     </div>
   );

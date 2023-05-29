@@ -1,6 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import {
-
+  Basics,
   Education,
   Interest,
   Language,
@@ -49,20 +49,20 @@ export class IntegrationsService {
       isArchiveValid = await archive.entries().then((entries) => Object.keys(entries).length > 0);
 
       // Profile
-      try {
-        const profileCSV = (await archive.entryData('Profile.csv')).toString();
-        const profile = (await csv().fromString(profileCSV))[0];
-        merge<Partial<Resume>, DeepPartial<Resume>>(resume, {
-          basics: {
-            name: `${get(profile, 'First Name')} ${get(profile, 'Last Name')}`,
-            headline: get(profile, 'Headline'),
-            location: get(profile, 'Location'),
+      // try {
+      //   const profileCSV = (await archive.entryData('Profile.csv')).toString();
+      //   const profile = (await csv().fromString(profileCSV))[0];
+      //   merge<Partial<Resume>, DeepPartial<Resume>>(resume, {
+      //     basics: {
+      //       name: `${get(profile, 'First Name')} ${get(profile, 'Last Name')}`,
+      //       headline: get(profile, 'Headline'),
+      //       location: get(profile, 'Location'),
             
-          },
-        });
-      } catch {
-        // pass through
-      }
+      //     },
+      //   });
+      // } catch {
+      //   // pass through
+      // }
 
       // Email
       try {
@@ -239,13 +239,13 @@ export class IntegrationsService {
         merge<Partial<Resume>, DeepPartial<Resume>>(resume, {
           basics: {
             name: get(jsonResume, 'basics.name'),
-            headline: get(jsonResume, 'basics.label'),
+            // headline: get(jsonResume, 'basics.label'),
             photo: {
               url: get(jsonResume, 'basics.image'),
             },
             email: get(jsonResume, 'basics.email'),
             phone: get(jsonResume, 'basics.phone'),
-            website: get(jsonResume, 'basics.url'),
+            // website: get(jsonResume, 'basics.url'),
             location: get(jsonResume, 'basics.location'),
           },
         });
@@ -254,26 +254,26 @@ export class IntegrationsService {
       }
 
       // Profiles
-      try {
-        const profiles: any[] = get(jsonResume, 'basics.profiles', []);
-        profiles.forEach((profile) => {
-          merge<Partial<Resume>, DeepPartial<Resume>>(resume, {
-            basics: {
-              profiles: [
-                ...resume.basics.profiles,
-                {
-                  id: uuidv4(),
-                  url: get(profile, 'url'),
-                  network: get(profile, 'network'),
-                  username: get(profile, 'username'),
-                },
-              ],
-            },
-          });
-        });
-      } catch {
-        // pass through
-      }
+      // try {
+      //   const profiles: any[] = get(jsonResume, 'basics.profiles', []);
+      //   profiles.forEach((profile) => {
+      //     merge<Partial<Resume>, DeepPartial<Resume>>(resume, {
+      //       basics: {
+      //         profiles: [
+      //           ...resume.basics.profiles,
+      //           {
+      //             id: uuidv4(),
+      //             url: get(profile, 'url'),
+      //             network: get(profile, 'network'),
+      //             username: get(profile, 'username'),
+      //           },
+      //         ],
+      //       },
+      //     });
+      //   });
+      // } catch {
+      //   // pass through
+      // }
 
       // Work
       try {
@@ -472,13 +472,13 @@ export class IntegrationsService {
         merge<Partial<Resume>, DeepPartial<Resume>>(resume, {
           basics: {
             name: get(jsonResume, 'profile.firstName') + ' ' + get(jsonResume, 'profile.lastName'),
-            headline: get(jsonResume, 'profile.subtitle'),
+            // headline: get(jsonResume, 'profile.subtitle'),
             photo: {
               url: get(jsonResume, 'profile.photograph'),
             },
             email: get(jsonResume, 'profile.email'),
             phone: get(jsonResume, 'profile.phone'),
-            website: get(jsonResume, 'profile.website'),
+            // website: get(jsonResume, 'profile.website'),
             location: get(jsonResume, 'profile.address'),
           },
         });
@@ -487,26 +487,26 @@ export class IntegrationsService {
       }
 
       // Profiles
-      try {
-        const profiles: any[] = get(jsonResume, 'social.items', []);
-        profiles.forEach((profile) => {
-          merge<Partial<Resume>, DeepPartial<Resume>>(resume, {
-            basics: {
-              profiles: [
-                ...resume.basics.profiles,
-                {
-                  id: uuidv4(),
-                  url: get(profile, 'url'),
-                  network: get(profile, 'network'),
-                  username: get(profile, 'username'),
-                },
-              ],
-            },
-          });
-        });
-      } catch {
-        // pass through
-      }
+      // try {
+      //   const profiles: any[] = get(jsonResume, 'social.items', []);
+      //   profiles.forEach((profile) => {
+      //     merge<Partial<Resume>, DeepPartial<Resume>>(resume, {
+      //       basics: {
+      //         profiles: [
+      //           ...resume.basics.profiles,
+      //           {
+      //             id: uuidv4(),
+      //             url: get(profile, 'url'),
+      //             network: get(profile, 'network'),
+      //             username: get(profile, 'username'),
+      //           },
+      //         ],
+      //       },
+      //     });
+      //   });
+      // } catch {
+      //   // pass through
+      // }
 
       // Work
       try {

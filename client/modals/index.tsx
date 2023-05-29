@@ -9,21 +9,22 @@ import LoginModal from './auth/LoginModal';
 import RegisterModal from './auth/RegisterModal';
 import ResetPasswordModal from './auth/ResetPasswordModal';
 import UserProfileModal from './auth/UserProfileModal';
-import CertificateModal from './builder/sections/CertificateModal';
+// import CertificateModal from './builder/sections/CertificateModal';
 import CustomModal from './builder/sections/CustomModal';
-import AwardModal from './builder/sections/AwardModal';
+// import AwardModal from './builder/sections/AwardModal';
 import EducationModal from './builder/sections/EducationModal';
 import ProfessionalTrainingModal from './builder/sections/ProfessionalTrainingModal';
+import ExtraCurricularModal from './builder/sections/ExtraCurricularModal';
 import VocationalTrainingModal from './builder/sections/VocationalTrainingModal';
 import EntranceExamModal from './builder/sections/EntranceExamModal';
 import InterestModal from './builder/sections/InterestModal';
 import LanguageModal from './builder/sections/LanguageModal';
-import ProfileModal from './builder/sections/ProfileModal';
+// import ProfileModal from './builder/sections/ProfileModal';
 import ProjectModal from './builder/sections/ProjectModal';
-import PublicationModal from './builder/sections/PublicationModal';
-import ReferenceModal from './builder/sections/ReferenceModal';
+// import PublicationModal from './builder/sections/PublicationModal';
+// import ReferenceModal from './builder/sections/ReferenceModal';
 import SkillModal from './builder/sections/SkillModal';
-import VolunteerModal from './builder/sections/VolunteerModal';
+// import VolunteerModal from './builder/sections/VolunteerModal';
 import WorkModal from './builder/sections/WorkModal';
 import CreateResumeModal from './dashboard/CreateResumeModal';
 import ImportExternalModal from './dashboard/ImportExternalModal';
@@ -63,21 +64,22 @@ const ModalWrapper: React.FC = () => {
       {/* Builder */}
 
       {/* Sections */}
-      <ProfileModal />
+      {/* <ProfileModal /> */}
       <WorkModal />
       <EducationModal />
       <ProfessionalTrainingModal />
+      <ExtraCurricularModal />
       < VocationalTrainingModal />
       <EntranceExamModal />
-      <AwardModal />
-      <CertificateModal />
-      <PublicationModal />
+      {/* <AwardModal /> */}
+      {/* <CertificateModal /> */}
+      {/* <PublicationModal /> */}
       <SkillModal />
       <LanguageModal />
       <InterestModal />
-      <VolunteerModal />
+      {/* <VolunteerModal /> */}
       <ProjectModal />
-      <ReferenceModal />
+      {/* <ReferenceModal /> */}
 
       {/* Custom Sections */}
       <CustomModal />

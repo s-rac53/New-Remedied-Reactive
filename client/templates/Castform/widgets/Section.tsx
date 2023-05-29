@@ -52,8 +52,18 @@ const Section: React.FC<SectionProps> = ({
             phone: string = get(item, 'phone', ''),
             email: string = get(item, 'email', ''),
             summary: string = get(item, 'summary', ''),
+            affiliation: string = get(item, 'affiliation', ''),
             levelNum: number = get(item, 'levelNum', 0),
-            date = formatDateString(get(item, 'date', ''), dateFormat);
+            date = get(item, 'date', ''),
+            dop = get(item,'dop', ''),
+            organization = get(item,'organization',''),
+            exam = get(item,'exam',''),
+            placeofbirth = get(item,'placeofbirth',''),
+            genderandnationality = get(item,'genderandnationality',''),
+            location = get(item,'location',''),
+            about: string = get(item, 'about', ''),
+            score = get(item,'score',''),
+            courses = get(item,'courses','');
 
           return (
             <div key={id} id={id} className="grid gap-1">
@@ -66,10 +76,13 @@ const Section: React.FC<SectionProps> = ({
                 <div className="flex flex-col gap-1 text-right text-xs">
                   {date && <div className="opacity-50">({date})</div>}
                   {headline && <span className="opacity-75">{headline}</span>}
+                  {organization && <div><em>{organization}</em></div>}
+
+                  {exam && <div><em>{exam}</em></div>}
                 </div>
               </div>
 
-              {(level || levelNum > 0) && (
+              {/* {(level || levelNum > 0) && (
                 <div className="grid gap-1">
                   {level && <span className="opacity-75">{level}</span>}
                   {levelNum > 0 && (
@@ -92,9 +105,25 @@ const Section: React.FC<SectionProps> = ({
                     </div>
                   )}
                 </div>
-              )}
+              )} */}
+
+              
+
+              {about && <Markdown>{about}</Markdown>}
 
               {summary && <Markdown>{summary}</Markdown>}
+
+              {affiliation && <Markdown>{affiliation}</Markdown>}
+
+              {courses && <Markdown>{courses}</Markdown>}
+
+              {score && <Markdown>{score}</Markdown>}
+
+              {dop && <Markdown>{dop}</Markdown>}
+
+              {level && <Markdown>{level}</Markdown>}
+
+              
 
               {url && (
                 <DataDisplay icon={<Link />} link={addHttp(url)}>
@@ -107,18 +136,30 @@ const Section: React.FC<SectionProps> = ({
               {(phone || email) && (
                 <div className="grid gap-1">
                   {phone && (
-                    <DataDisplay icon={<Phone />} link={`tel:${phone}`}>
+                    <DataDisplay link={`tel:${phone}`}>
                       {phone}
                     </DataDisplay>
                   )}
 
                   {email && (
-                    <DataDisplay icon={<Email />} link={`mailto:${email}`}>
+                    <DataDisplay link={`mailto:${email}`}>
                       {email}
                     </DataDisplay>
                   )}
+
+                  {location && (
+                    <DataDisplay>
+                      {location}
+                    </DataDisplay>
+                  )}
+
+                  {placeofbirth && <div className="inline-flex items-center justify-center gap-x-2"> {placeofbirth} </div>}
+
+                  {genderandnationality && <div className="inline-flex items-center justify-center gap-x-2">  {genderandnationality} </div>}
                 </div>
               )}
+
+
             </div>
           );
         })}

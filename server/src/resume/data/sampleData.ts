@@ -16,27 +16,10 @@ const sampleData: Partial<Resume> = {
       },
       visible: true,
     },
-    website: 'alexisjones.com',
-    headline: 'Highly Creative Frontend Web Developer',
-    location: 'Baden-Württemberg',
+    location: 'B 402,KONARK INDRAYU ENCLAVE PHASE 2  NIBM, PUNE L PIN: 411048 ,MAKARASHTRA, INDIA',
     placeofbirth: 'Austria',
     genderandnationality: 'Male & Indian',
 
-
-    profiles: [
-      {
-        id: '4df61ffc-e48b-43f1-9434-add35d9cb155',
-        url: 'https://linkedin.com/in/AlexisJones',
-        network: 'LinkedIn',
-        username: 'AlexisJones',
-      },
-      {
-        id: '8f77327d-4484-40b4-92eb-65eaa6aae5f4',
-        url: 'https://dribbble.com/AlexisJones',
-        network: 'Dribbble',
-        username: 'AlexisJones',
-      },
-    ],
   },
   sections: {
     work: {
@@ -50,9 +33,9 @@ const sampleData: Partial<Resume> = {
           date: '2015-09-01',
           name: 'DP Technology Corp.',
           summary:
-            '- Manage website development projects from initial design through completion, optimizing all cross-browser and multi-platform compatibility.\n- Work closely with programmers and clients to meet project requirements, goals, and desired functionality.\n- Develop and integrate customized themes into WordPress, PHP-Fusion, and Concrete5.\nConduct training for clients on handling website content management systems.\n- Enable site-wide promotions by programming HTML5 canvases to animate particles on web backgrounds.',
+            '  **Responsibilities** \n - Manage website development projects from initial design through completion, optimizing all cross-browser and multi-platform compatibility.\n- Work closely with programmers and clients to meet project requirements, goals, and desired functionality.\n- Develop and integrate customized themes into WordPress, PHP-Fusion, and Concrete5.\nConduct training for clients on handling website content management systems.\n- Enable site-wide promotions by programming HTML5 canvases to animate particles on web backgrounds.',
           about:
-            '- Manage website development projects from initial design through completion, optimizing all cross-browser and multi-platform compatibility.\n- Work closely with programmers and clients to meet project requirements, goals, and desired functionality.\n- Develop and integrate customized themes into WordPress, PHP-Fusion, and Concrete5.\nConduct training for clients on handling website content management systems.\n- Enable site-wide promotions by programming HTML5 canvases to animate particles on web backgrounds.',  
+            ' ACI Worldwide — the leader in real-time payments — delivers the mission-critical real-time payments software solutions that enable corporations to process and manage digital payments, power omni-commerce payments, present and process bill payments, and manage fraud and risk.',  
           position: 'Frontend Developer, Stuttgart DE',
         },
         {
@@ -61,51 +44,19 @@ const sampleData: Partial<Resume> = {
           date: '2015-09-01',
           name: 'Voko Communications',
           summary:
-            '- Developed websites from front to backend using PHP, JavaScript, and HTML.\n- Enhanced user experience and accomplish webpage objectives by creating site structure, navigation, page optimization, and graphics integration.\n- Implemented enhancements that improved web functionality and responsiveness.\n- Designed and maintained both corporate and client websites, using scripting languages and content management systems including WordPress.',
+            '  **Responsibilities** \n - Developed websites from front to backend using PHP, JavaScript, and HTML.\n- Enhanced user experience and accomplish webpage objectives by creating site structure, navigation, page optimization, and graphics integration.\n- Implemented enhancements that improved web functionality and responsiveness.\n- Designed and maintained both corporate and client websites, using scripting languages and content management systems including WordPress.',
           about:
-            '- Manage website development projects from initial design through completion, optimizing all cross-browser and multi-platform compatibility.\n- Work closely with programmers and clients to meet project requirements, goals, and desired functionality.\n- Develop and integrate customized themes into WordPress, PHP-Fusion, and Concrete5.\nConduct training for clients on handling website content management systems.\n- Enable site-wide promotions by programming HTML5 canvases to animate particles on web backgrounds.',  
+            ' VTU is one of the largest Technological Universities in India with 24 years of Tradition of excellence in Engineering & Technical Education, Research and Innovations. It came into existence in the year 1998 to cater the needs of Indian industries for trained technical manpower with practical experience and sound theoretical knowledge.',  
           position: 'Frontend Developer',
         },
       ],
       columns: 1,
       visible: true,
     },
-    awards: {
-      id: 'awards',
-      name: 'Awards',
-      type: 'basic',
-      items: [
-        {
-          title: 'Blitz Hackathon',
-          awarder: '2nd Place',
-          date: '2018-03-31',
-          url: '',
-          summary: '',
-          id: '657cadb0-c07d-4a35-8351-9079598c7ac0',
-        },
-        {
-          title: 'Carl-Zeiss Hackathon',
-          awarder: '2nd Place',
-          date: '2017-05-09',
-          url: '',
-          summary: '',
-          id: 'db3bc5cb-483e-4221-9867-9c28ee5f2051',
-        },
-        {
-          title: 'JP Morgan Chase - Code for Good',
-          awarder: '3rd Place',
-          date: '2018-03-12T23:00:00.000Z',
-          url: '',
-          summary: '',
-          id: '31eb2547-4175-494f-a16a-0891aea483b7',
-        },
-      ],
-      columns: 3,
-      visible: true,
-    },
+   
     skills: {
       id: 'skills',
-      name: 'Skills',
+      name: 'Technical/Soft Skills',
       type: 'basic',
       items: [
         {
@@ -123,7 +74,7 @@ const sampleData: Partial<Resume> = {
       items: [
         {
           summary:
-            '- Performed an average of 90+ cold calls daily creating three new qualified prospects exceeding company average by 10%.\n- Managed a $1 million pipeline that supported the creation of 50 new accounts.\n- Sold SaaS and Cloud offering to key accounts including California State University, Ace Athetics and BMI, succeeding in reducing back-up time by 50%.\n\n**Key Projects:** Worked with IT team to create a new web-based leads-generating system, resulting in closed sales increasing by 18% contributing to a $1.5 million increase in profits.',
+            ' - Performed an average of 90+ cold calls daily creating three new qualified prospects exceeding company average by 10%.\n- Managed a $1 million pipeline that supported the creation of 50 new accounts.\n- Sold SaaS and Cloud offering to key accounts including California State University, Ace Athetics and BMI, succeeding in reducing back-up time by 50%.\n\n**Key Projects:** Worked with IT team to create a new web-based leads-generating system, resulting in closed sales increasing by 18% contributing to a $1.5 million increase in profits.',
           id: '8c12add5-605a-449f-a8a6-e7625c702e60',
         },
         
@@ -140,26 +91,28 @@ const sampleData: Partial<Resume> = {
           id: '3f0eded8-ee1f-4c0e-b4a7-7a0811c150db',
           url: 'https://www.greenriver.edu',
           date: '2015-09-01',
-          score: 'Honors: cum laude (GPA: 3.6/4.0)',
+          score: '**Score:** Honors: cum laude (GPA: 3.6/4.0)',
           degree: 'Bachelor of Science',
-          courses: 'Data Structures and Algorithms, Logic Design',
-          summary: 'Good college',
+          affiliation: '**Affiliation:** Harvard University',
+          courses: '**Subjects:** Data Structures and Algorithms, Logic Design',
+          summary: 'VTU is one of the largest Technological Universities in India with 24 years of Tradition of excellence in Engineering & Technical Education, Research and Innovations. It came into existence in the year 1998 to cater the needs of Indian industries for trained technical manpower with practical experience and sound theoretical knowledge.',
           institution: 'Green River College',
-          dop: '12-05-2016'
+          dop: '**Date of Passing:** 12-05-2016'
         },
         {
           id: 'e4977e01-25bf-4524-95c4-20c77c3cf700',
           url: 'https://www.lsu.edu',
           date: '2015-09-01',
-          score: 'Baton Rouge, LA',
+          score: '**Score:** CGPA 8.97',
           degree: 'Bachelor of Arts',
-          courses: 'Copywriting, Product Analysis',
-          summary: 'nice college',
+          affiliation: '**Affiliation:** Harvard University',
+          courses: '**Subjects:** Copywriting, Product Analysis',
+          summary: 'VTU is one of the largest Technological Universities in India with 24 years of Tradition of excellence in Engineering & Technical Education, Research and Innovations. It came into existence in the year 1998 to cater the needs of Indian industries for trained technical manpower with practical experience and sound theoretical knowledge.',
           institution: 'Louisiana State University',
-          dop: '05-05-2016'
+          dop: '**Date of Passing:** 05-05-2016'
         },
       ],
-      columns: 2,
+      columns: 1,
       visible: true,
     },
 
@@ -177,6 +130,20 @@ const sampleData: Partial<Resume> = {
       visible: true,
     },
 
+    extracurriculars: {
+      id: 'extracurriculars',
+      name: 'Extra Curricular Achievements',
+      type: 'basic',
+      items: [
+        {
+          id: '1f5rst68-e12f-4c8e-de47-6yh7i1c150db',
+          summary: 'Extra Good college, Lorem ipsum dolor sit amet, **consectetur adipiscing elit.** Nam scelerisque ac metus sit amet tempor. Sed luctus dui fermentum aliquet dapibus.',    
+        },
+      ],
+      columns: 1,
+      visible: true,
+    },
+
     vocationaltrainings: {
       id: 'vocationaltrainings',
       name: 'Vocational Training',
@@ -185,13 +152,13 @@ const sampleData: Partial<Resume> = {
         {
           id: 'vfgr5t68-e12f-b65e-b147-uhn6i1c150db',
           date: '12-03-2018',
-          organization: 'HAL pvt ltd',
+          name: 'HAL pvt ltd',
           summary: 'Good college, Lorem ipsum dolor sit amet, **consectetur adipiscing elit.** Nam scelerisque ac metus sit amet tempor. Sed luctus dui fermentum aliquet dapibus.',    
         },
         {
           id: '98t4gt68-a12f-g55e-hg57-ac7li1c150db',
           date: '13-04-2019',
-          organization: 'IBM pvt ltd',
+          name: 'IBM pvt ltd',
           summary: 'Good college, Lorem ipsum dolor sit amet, **consectetur adipiscing elit.** Nam scelerisque ac metus sit amet tempor. Sed luctus dui fermentum aliquet dapibus.',    
         },
       ],
@@ -206,15 +173,13 @@ const sampleData: Partial<Resume> = {
       items: [
         {
           id: 'vfgr5t68-e12f-b65e-b147-uhn6i1c150db',
-          date: '12-03-2018',
-          organization: 'GRE',
-          summary: 'GRE 317 (V 150, Q 167, AWA 4.0)',    
+          name: 'GRE',
+          summary: 'August 7, 2018: SCORE 308.0\n\n(V 145, Q 160, AWA 3.0)',    
         },
         {
           id: '98t4gt68-a12f-g55e-hg57-ac7li1c150db',
-          date: '13-04-2019',
-          organization: 'GMAT',
-          summary: 'GMAT 317 (V 150, Q 167, AWA 4.0)',    
+          name: 'GATE',
+          summary: '25/01/2020: SCORE 25.63/100',    
         },
       ],
       columns: 2,
@@ -241,159 +206,28 @@ const sampleData: Partial<Resume> = {
       type: 'basic',
       items: [
         {
-          name: 'English',
-          level: 'Native',
+          name: 'TOELF',
+          level: 'ENGLISH: Proficient \n\n Test Date: June 02, 2021: TOEFL(SCORE 101) \n\n Reading: 21, Listening: 26, Speaking: 26, Writing: 28',
           id: 'dd9eb2b8-2956-463b-b0b1-0ffef84f9fc2',
         },
         {
           name: 'German',
-          level: 'B1 (Intermediate)',
+          level: 'GERMAN: Average \n\n 01.10.2019: GERMAN(SCORE 69) \n\n Listening 14.94, Reading 16.6, Writing 17.43, Speaking 19.92',
+          id: '6cf99d85-4efc-4ff8-9a7f-e76abd2d2857',
+        },
+        {
+          name: 'IELTS',
+          level: 'ENGLISH: Proficient \n\n 19/03/2020: IELTS(SCORE 7.5) \n\n Listening 8.5, Reading 7.0, Writing 6.5, Speaking 7.0 ',
           id: '6cf99d85-4efc-4ff8-9a7f-e76abd2d2857',
         },
       ],
       columns: 1,
       visible: true,
     },
-    volunteer: {
-      id: 'volunteer',
-      name: 'Volunteer Experience',
-      type: 'basic',
-      items: [],
-      columns: 2,
-      visible: true,
-    },
-    references: {
-      id: 'references',
-      name: 'References',
-      type: 'basic',
-      items: [
-        {
-          name: 'Cindy J. Helmer',
-          relationship: 'CEO/Founder, Copy.ai',
-          phone: '916-609-9531',
-          email: 'cindyjh@joupide.com',
-          summary:
-            'Lorem ipsum dolor sit amet, **consectetur adipiscing elit.** Nam scelerisque ac metus sit amet tempor. Sed luctus dui fermentum aliquet dapibus.',
-          id: '5a114a83-b62c-4b90-a0ef-1ab5516dc0dd',
-        },
-        {
-          name: 'Keisha Whaley',
-          relationship: 'Solutions Architect, AWS',
-          phone: '978-584-6675',
-          email: 'keishawhaley@aws.de',
-          summary:
-            'Morbi a elit semper arcu tempor porta. _Sed tristique eu turpis vitae ultrices._ ~Nullam nec quam~ ac diam eleifend fringilla. Sed congue magna at ante bibendum posuere.',
-          id: 'd866c929-4132-4dab-81c3-8dfcb33f5c0a',
-        },
-      ],
-      columns: 2,
-      visible: true,
-    },
-    publications: {
-      id: 'publications',
-      name: 'Publications',
-      type: 'basic',
-      items: [],
-      columns: 2,
-      visible: true,
-    },
-    certifications: {
-      id: 'certifications',
-      name: 'Certifications',
-      type: 'basic',
-      items: [
-        {
-          name: 'Web Applications for Everbody',
-          issuer: 'Coursera',
-          date: '',
-          url: 'https://www.coursera.org/',
-          summary: '',
-          id: '75b87dcb-56ef-498d-bd26-a7d646bec914',
-        },
-        {
-          name: 'Full-Stack Web Development with Stack',
-          issuer: 'Coursera',
-          date: '',
-          url: 'https://www.coursera.org/',
-          summary: '',
-          id: 'd1057a6c-c2b2-436f-9166-9e17ae591e71',
-        },
-        {
-          name: 'Critical Thinking Masterclass',
-          issuer: 'Khan Academy',
-          date: '',
-          url: 'https://www.khanacademy.org/',
-          summary: '',
-          id: '44fc2443-b6fc-4c39-8e29-55884cb2b8d0',
-        },
-        {
-          name: 'Web Development Bootcamp',
-          issuer: 'Udemy',
-          date: '',
-          url: 'https://udemy.com/',
-          summary: '',
-          id: '7308d2bc-0bb8-4f53-991a-e17506f5e6a1',
-        },
-      ],
-      columns: 2,
-      visible: true,
-    },
-    '2d47a563-d0a0-4275-af18-fea3ba6b57b4': {
-      name: 'Soft Skills',
-      type: 'custom',
-      items: [
-        {
-          id: 'bcd19f25-b015-4532-b555-dbcc6f556661',
-          url: '',
-          date: '',
-          level: '',
-          title: 'Leadership',
-          summary: '',
-          keywords: ['Collaboration', 'Communication'],
-          levelNum: 8,
-          subtitle: '',
-        },
-        {
-          id: 'e6fde8df-dcc8-4481-b872-2c298e7a3bbf',
-          url: '',
-          date: '',
-          level: '',
-          title: 'Creativity',
-          summary: '',
-          keywords: ['Critical Thinking', 'Visual Thinking'],
-          levelNum: 8,
-          subtitle: '',
-        },
-        {
-          id: '888db537-bed2-4d4d-901b-2c7f905f0464',
-          url: '',
-          date: '',
-          level: '',
-          title: 'Problem Solving',
-          summary: '',
-          keywords: ['Algorithms', 'Data Structures'],
-          levelNum: 6,
-          subtitle: '',
-        },
-        {
-          id: '74b9984e-4f0f-4db3-bdc8-fddb647b8df8',
-          url: '',
-          date: '',
-          level: '',
-          title: 'Organization Skills',
-          summary: '',
-          keywords: ['Enthusiasm', 'Work Ethic', 'Supervision'],
-          levelNum: 6,
-          subtitle: '',
-        },
-      ],
-      columns: 4,
-      visible: true,
-    },
   },
   metadata: {
     css: {
-      value: '/* Enter custom CSS here */\n\n* {\n    outline: 1px solid #000;\n}',
+      value: 'padding: 50px',
       visible: false,
     },
     locale: 'en',
@@ -402,7 +236,7 @@ const sampleData: Partial<Resume> = {
     },
     theme: {
       text: '#000000',
-      primary: '#1682cf',
+      primary: '#979594',
       background: '#ffffff',
     },
     layout: [
@@ -411,16 +245,16 @@ const sampleData: Partial<Resume> = {
         [],
       ],
       [
-        ['skills', '2d47a563-d0a0-4275-af18-fea3ba6b57b4', 'languages','entranceexams'],
+        ['skills', 'languages','entranceexams'],
         [ 'interests','vocationaltrainings'],
       ],
-      [['projects','professionaltrainings'],[]],
+      [['projects','professionaltrainings'],['extracurriculars']],
     ],
-    template: 'kakuna',
+    template: 'castform',
     typography: {
       size: {
-        body: 14,
-        heading: 28,
+        body: 10,
+        heading: 32,
       },
       family: {
         body: 'Open Sans',

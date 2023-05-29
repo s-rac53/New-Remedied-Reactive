@@ -51,12 +51,18 @@ const Section: React.FC<SectionProps> = ({
             phone: string = get(item, 'phone', ''),
             email: string = get(item, 'email', ''),
             summary: string = get(item, 'summary', ''),
+            affiliation: string = get(item, 'affiliation', ''),
             about: string = get(item, 'about', ''), 
             levelNum: number = get(item, 'levelNum', 0),
             // name: string = get(item, 'name', ''),
             date = get(item, 'date', ''),
             dop = get(item,'dop', ''),
             organization = get(item,'organization',''),
+            exam = get(item,'exam',''),
+            placeofbirth = get(item,'placeofbirth',''),
+            genderandnationality = get(item,'genderandnationality',''),
+            location = get(item,'location',''),
+            score = get(item,'score',''),
             courses = get(item,'courses','');
 
           return (
@@ -67,7 +73,7 @@ const Section: React.FC<SectionProps> = ({
 
               {headline && <span className="opacity-75">{headline}</span>}
 
-              {(level || levelNum > 0) && (
+              {/* {(level || levelNum > 0) && (
                 <div className="grid gap-1">
                   {level && <span className="opacity-75">{level}</span>}
                   {levelNum > 0 && (
@@ -85,17 +91,35 @@ const Section: React.FC<SectionProps> = ({
                     </div>
                   )}
                 </div>
-              )}
+              )} */}
 
               {date && <div className="opacity-50">({date})</div>}
 
               {organization && <div><em>{organization}</em></div>}
 
-              {courses && <div className="inline-flex justify-center"> {courses} </div>}
+              {exam && <div><em>{exam}</em></div>}
+
+                  
+                  
+
+              {/* {courses && <div className="inline-flex justify-center"> {courses} </div>} */}
+
+              {about && <Markdown>{about}</Markdown>}
 
               {summary && <Markdown>{summary}</Markdown>}
 
-              {about && <Markdown>{about}</Markdown>}
+              {affiliation && <Markdown>{affiliation}</Markdown>}
+
+              {courses && <Markdown>{courses}</Markdown>}
+
+              {score && <Markdown>{score}</Markdown>}
+
+              {dop && <Markdown>{dop}</Markdown>}
+
+
+              {level && <Markdown>{level}</Markdown>}
+
+              
 
               {/* {name && <div className="inline-flex items-center"> {name} </div>} */}
 
@@ -124,10 +148,23 @@ const Section: React.FC<SectionProps> = ({
                       <span>{email}</span>
                     </div>
                   )}
+
+                  {location && (
+                    <div className="inline-flex items-center justify-center gap-x-2">
+                      <Phone />
+                      <span>{location}</span>
+                    </div>
+                  )}
                 </div>
               )}
 
-              {dop && <div className="opacity-50">({dop})</div>}
+              {placeofbirth && <div className="inline-flex items-center justify-center gap-x-2"> {placeofbirth} </div>}
+
+              {genderandnationality && <div className="inline-flex items-center justify-center gap-x-2">  {genderandnationality} </div>}
+
+                  
+
+              {/* {dop && <div className="opacity-50">({dop})</div>} */}
 
             </div>
           );

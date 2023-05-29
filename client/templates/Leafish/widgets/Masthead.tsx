@@ -13,7 +13,7 @@ import { addHttp, formatLocation, getPhotoClassNames } from '@/utils/template';
 
 const Masthead: React.FC = () => {
   const dateFormat: string = useAppSelector((state) => get(state.resume.present, 'metadata.date.format'));
-  const { name, photo, headline, summary, email, phone, birthdate, website, location, profiles } = useAppSelector(
+  const { name, photo, email, phone, birthdate, location, placeofbirth, genderandnationality } = useAppSelector(
     (state) => state.resume.present.basics
   );
   const theme: ThemeConfig = useAppSelector((state) => get(state.resume.present, 'metadata.theme', {} as ThemeConfig));
@@ -23,10 +23,10 @@ const Masthead: React.FC = () => {
       <div className="flex items-center gap-4 p-6" style={{ backgroundColor: alpha(theme.primary, 0.2) }}>
         <div className="grid flex-1 gap-1">
           <h1>{name}</h1>
-          <p style={{ color: theme.primary }}>{headline}</p>
+          {/* <p style={{ color: theme.primary }}>{headline}</p>
           <p className="opacity-75">
             <Markdown>{summary}</Markdown>
-          </p>
+          </p> */}
         </div>
 
         {photo.visible && !isEmpty(photo.url) && (
@@ -43,29 +43,40 @@ const Masthead: React.FC = () => {
         className="grid gap-y-2 px-8 py-4"
         style={{ backgroundColor: alpha(theme.primary, 0.4), gridTemplateColumns: `repeat(2, minmax(0, 1fr))` }}
       >
-        <DataDisplay icon={<Room />} className="col-span-2">
-          {formatLocation(location)}
-        </DataDisplay>
+    
 
-        <DataDisplay icon={<Cake />}>{formatDateString(birthdate, dateFormat)}</DataDisplay>
+        <DataDisplay><div><b>D.O.B:</b></div>{birthdate}</DataDisplay>
 
-        <DataDisplay icon={<Email />} link={`mailto:${email}`}>
+        <DataDisplay link={`mailto:${email}`}>
+        <div><b>EMAIL:</b></div>
           {email}
         </DataDisplay>
 
-        <DataDisplay icon={<Phone />} link={`tel:${phone}`}>
+        <DataDisplay link={`tel:${phone}`}>
+        <div><b>PHONE:</b></div>
           {phone}
         </DataDisplay>
 
-        <DataDisplay icon={<Public />} link={addHttp(website)}>
-          {website}
+        <DataDisplay>
+        <div><b>ADDRESS:</b></div>
+          {location}
         </DataDisplay>
 
-        {profiles.map(({ id, username, network, url }) => (
+        <DataDisplay>
+        <div><b>PLACE OF BIRTH:</b></div>
+          {placeofbirth}
+        </DataDisplay>
+
+        <DataDisplay>
+        <div><b>GENDER AND NATIONALITY:</b></div>
+          {genderandnationality}
+        </DataDisplay>
+
+        {/* {profiles.map(({ id, username, network, url }) => (
           <DataDisplay key={id} icon={getProfileIcon(network)} link={url && addHttp(url)}>
             {username}
           </DataDisplay>
-        ))}
+        ))} */}
       </div>
     </div>
   );

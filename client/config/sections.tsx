@@ -47,16 +47,16 @@ export const left: SidebarSection[] = [
     icon: <Person />,
     component: <Basics />,
   },
-  {
-    id: 'location',
-    icon: <Map />,
-    component: <Location />,
-  },
-  {
-    id: 'profiles',
-    icon: <Twitter />,
-    component: <Profiles />,
-  },
+  // {
+  //   id: 'location',
+  //   icon: <Map />,
+  //   component: <Location />,
+  // },
+  // {
+  //   id: 'profiles',
+  //   icon: <Twitter />,
+  //   component: <Profiles />,
+  // },
   {
     id: 'work',
     icon: <Work />,
@@ -88,7 +88,7 @@ export const left: SidebarSection[] = [
   },
   {
     id: 'professionaltrainings',
-    icon: <School />,
+    icon:  <Groups />,
     component: (
       <Section
         type={'professionaltrainings'}
@@ -101,7 +101,7 @@ export const left: SidebarSection[] = [
   },
   {
     id: 'vocationaltrainings',
-    icon: <School />,
+    icon: <CardGiftcard />,
     component: (
       <Section
         type={'vocationaltrainings'}
@@ -115,58 +115,71 @@ export const left: SidebarSection[] = [
   },
   {
     id: 'entranceexams',
-    icon: <School />,
+    icon: <MenuBook />,
     component: (
       <Section
         type={'entranceexams'}
         path="sections.entranceexams"
-        titleKey="name"
-        subtitleKey="date"
+        titleKey="exam"
+        subtitleKey="name"
         isEditable
         isHideable
       />
     ),
   },
   {
-    id: 'awards',
-    icon: <EmojiEvents />,
-    component: (
-      <Section type={'awards'} path="sections.awards" titleKey="title" subtitleKey="awarder" isEditable isHideable />
-    ),
-  },
-  {
-    id: 'certifications',
-    icon: <CardGiftcard />,
+    id: 'extracurriculars',
+    icon:  <VolunteerActivism />,
     component: (
       <Section
-        type={'certifications'}
-        path="sections.certifications"
-        titleKey="name"
-        subtitleKey="issuer"
+        type={'extracurriculars'}
+        path="sections.extracurriculars"
+        titleKey="summary"
         isEditable
         isHideable
       />
     ),
   },
-  {
-    id: 'publications',
-    icon: <MenuBook />,
-    component: (
-      <Section
-        type={'publications'}
-        path="sections.publications"
-        titleKey="name"
-        subtitleKey="publisher"
-        isEditable
-        isHideable
-      />
-    ),
-  },
+  // {
+  //   id: 'awards',
+  //   icon: <EmojiEvents />,
+  //   component: (
+  //     <Section type={'awards'} path="sections.awards" titleKey="title" subtitleKey="awarder" isEditable isHideable />
+  //   ),
+  // },
+  // {
+  //   id: 'certifications',
+  //   icon: <CardGiftcard />,
+  //   component: (
+  //     <Section
+  //       type={'certifications'}
+  //       path="sections.certifications"
+  //       titleKey="name"
+  //       subtitleKey="issuer"
+  //       isEditable
+  //       isHideable
+  //     />
+  //   ),
+  // },
+  // {
+  //   id: 'publications',
+  //   icon: <MenuBook />,
+  //   component: (
+  //     <Section
+  //       type={'publications'}
+  //       path="sections.publications"
+  //       titleKey="name"
+  //       subtitleKey="publisher"
+  //       isEditable
+  //       isHideable
+  //     />
+  //   ),
+  // },
   {
     id: 'skills',
     icon: <Architecture />,
     component: (
-      <Section type={'skills'} path="sections.skills" titleKey="name" subtitleKey="level" isEditable isHideable />
+      <Section type={'skills'} path="sections.skills" titleKey="summary" isEditable isHideable />
     ),
   },
   {
@@ -183,27 +196,26 @@ export const left: SidebarSection[] = [
       <Section
         type={'interests'}
         path="sections.interests"
-        titleKey="name"
-        subtitleKey="keywords"
+        titleKey="summary"
         isEditable
         isHideable
       />
     ),
   },
-  {
-    id: 'volunteer',
-    icon: <VolunteerActivism />,
-    component: (
-      <Section
-        type={'volunteer'}
-        path="sections.volunteer"
-        titleKey="organization"
-        subtitleKey="position"
-        isEditable
-        isHideable
-      />
-    ),
-  },
+  // {
+  //   id: 'volunteer',
+  //   icon: <VolunteerActivism />,
+  //   component: (
+  //     <Section
+  //       type={'volunteer'}
+  //       path="sections.volunteer"
+  //       titleKey="organization"
+  //       subtitleKey="position"
+  //       isEditable
+  //       isHideable
+  //     />
+  //   ),
+  // },
   {
     id: 'projects',
     icon: <Coffee />,
@@ -211,27 +223,26 @@ export const left: SidebarSection[] = [
       <Section
         type={'projects'}
         path="sections.projects"
-        titleKey="name"
-        subtitleKey="description"
+        titleKey="summary"
         isEditable
         isHideable
       />
     ),
   },
-  {
-    id: 'references',
-    icon: <Groups />,
-    component: (
-      <Section
-        type={'references'}
-        path="sections.references"
-        titleKey="name"
-        subtitleKey="relationship"
-        isEditable
-        isHideable
-      />
-    ),
-  },
+  // {
+  //   id: 'references',
+  //   icon: <Groups />,
+  //   component: (
+  //     <Section
+  //       type={'references'}
+  //       path="sections.references"
+  //       titleKey="name"
+  //       subtitleKey="relationship"
+  //       isEditable
+  //       isHideable
+  //     />
+  //   ),
+  // },
 ];
 
 export const right: SidebarSection[] = [

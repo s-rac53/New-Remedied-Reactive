@@ -24,7 +24,7 @@ const Basics = () => {
 
   return (
     <>
-      <Heading path="sections.basics" name={t<string>('builder.leftSidebar.sections.basics.heading')} />
+      {/* <Heading path="sections.basics" name={t<string>('builder.leftSidebar.sections.basics.heading')} /> */}
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div className="grid items-center gap-4 sm:col-span-2 sm:grid-cols-3">
@@ -68,23 +68,33 @@ const Basics = () => {
           path="basics.email"
           className="sm:col-span-2"
         />
-        <ResumeInput label={t<string>('builder.common.form.phone.label')} path="basics.phone" />
-        <ResumeInput label={t<string>('builder.common.form.url.label')} path="basics.website" />
+        <ResumeInput label={t<string>('builder.common.form.phone.label')} path="basics.phone"
+        className="sm:col-span-2"
+         />
+         <ResumeInput label={t<string>('builder.leftSidebar.sections.basics.location.label')} path="basics.location"
+        className="sm:col-span-2"
+         />
+        <ResumeInput label={t<string>('builder.leftSidebar.sections.basics.placeofbirth.label')} path="basics.placeofbirth" />
+        
+        <ResumeInput label={t<string>('builder.leftSidebar.sections.basics.genderandnationality.label')} path="basics.genderandnationality" />
 
-        <Divider className="sm:col-span-2" />
+        
+        {/* <ResumeInput label={t<string>('builder.common.form.url.label')} path="basics.website" /> */}
 
-        <ResumeInput
+        {/* <Divider className="sm:col-span-2" /> */}
+
+        {/* <ResumeInput
           label={t<string>('builder.leftSidebar.sections.basics.headline.label')}
           path="basics.headline"
           className="sm:col-span-2"
-        />
-        <ResumeInput
+        /> */}
+        {/* <ResumeInput
           type="textarea"
           label={t<string>('builder.common.form.summary.label')}
           path="basics.summary"
           className="sm:col-span-2"
           markdownSupported
-        />
+        /> */}
       </div>
     </>
   );

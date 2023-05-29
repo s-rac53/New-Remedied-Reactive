@@ -10,7 +10,7 @@ import { PageProps } from '@/utils/template';
 
 import { getSectionById } from '../sectionMap';
 import styles from './Castform.module.scss';
-import { MastheadMain, MastheadSidebar } from './widgets/Masthead';
+import {MastheadSidebar } from './widgets/Masthead';
 import Section from './widgets/Section';
 
 const Castform: React.FC<PageProps> = ({ page }) => {
@@ -34,7 +34,7 @@ const Castform: React.FC<PageProps> = ({ page }) => {
           <div className={styles.inner}>{layout[1].map((key) => getSectionById(key, Section))}</div>
         </div>
         <div className={styles.main}>
-          <div className={styles.firstPage}>{isFirstPage && <MastheadMain />}</div>
+          <div className={styles.firstPage}>{isFirstPage}</div>
 
           <div className={styles.inner}>{layout[0].map((key) => getSectionById(key, Section))}</div>
         </div>

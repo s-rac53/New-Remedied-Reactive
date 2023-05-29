@@ -12,7 +12,7 @@ import { addHttp, formatLocation, getPhotoClassNames } from '@/utils/template';
 export const MastheadSidebar: React.FC = () => {
   const dateFormat: string = useAppSelector((state) => get(state.resume.present, 'metadata.date.format'));
   const primaryColor: string = useAppSelector((state) => get(state.resume.present, 'metadata.theme.primary'));
-  const { name, headline, photo, email, phone, birthdate, website, location, profiles } = useAppSelector(
+  const { name, photo, email, phone, birthdate, location, placeofbirth, genderandnationality} = useAppSelector(
     (state) => state.resume.present.basics
   );
 
@@ -30,42 +30,60 @@ export const MastheadSidebar: React.FC = () => {
 
       <div className="text-center">
         <h1>{name}</h1>
-        <p className="mt-1 opacity-75">{headline}</p>
+        {/* <p className="mt-1 opacity-75">{headline}</p> */}
       </div>
 
       <div className="flex flex-col gap-2 rounded border-2 p-4" style={{ borderColor: primaryColor }}>
-        <DataDisplay icon={<Room />} className="text-xs">
-          {formatLocation(location)}
+        
+
+        <DataDisplay className="text-xs">
+        <div><p><b>D.O.B:</b></p></div>
+          {birthdate}
         </DataDisplay>
 
-        <DataDisplay icon={<Cake />} className="text-xs">
-          {formatDateString(birthdate, dateFormat)}
-        </DataDisplay>
-
-        <DataDisplay icon={<Email />} className="text-xs" link={`mailto:${email}`}>
+        <DataDisplay className="text-xs" link={`mailto:${email}`}>
+        <div><p><b>EMAIL:</b></p></div>
           {email}
         </DataDisplay>
 
-        <DataDisplay icon={<Phone />} className="text-xs" link={`tel:${phone}`}>
+        <DataDisplay className="text-xs" link={`tel:${phone}`}>
+        <div><p><b>PHONE:</b></p></div>
           {phone}
         </DataDisplay>
 
-        <DataDisplay icon={<Public />} link={addHttp(website)} className="text-xs">
-          {website}
+        <DataDisplay className="text-xs">
+        <div><p><b>LOCATION:</b></p></div>
+          {location}
         </DataDisplay>
 
-        {profiles.map(({ id, username, network, url }) => (
+        <DataDisplay className="text-xs">
+        <div><p><b>PLACE OF BIRTH:</b></p></div>
+          {placeofbirth}
+        </DataDisplay>
+
+        <DataDisplay className="text-xs">
+        <div><p><b>GENDER AND NATIONALITY:</b></p></div>
+          {genderandnationality}
+        </DataDisplay>
+
+        {/* <DataDisplay icon={<Public />} link={addHttp(website)} className="text-xs">
+          {website}
+        </DataDisplay> */}
+
+        {/* {profiles.map(({ id, username, network, url }) => (
           <DataDisplay key={id} icon={getProfileIcon(network)} link={url && addHttp(url)} className="text-xs">
             {username}
           </DataDisplay>
-        ))}
+        ))} */}
+
+
       </div>
     </div>
   );
 };
 
-export const MastheadMain: React.FC = () => {
-  const { summary } = useAppSelector((state) => state.resume.present.basics);
+// export const MastheadMain: React.FC = () => {
+//   const { summary } = useAppSelector((state) => state.resume.present.basics);
 
-  return <Markdown>{summary}</Markdown>;
-};
+//   return <Markdown>{summary}</Markdown>;
+// };

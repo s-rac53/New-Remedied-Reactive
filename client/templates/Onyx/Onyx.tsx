@@ -12,7 +12,7 @@ import Section from './widgets/Section';
 const Onyx: React.FC<PageProps> = ({ page }) => {
   const isFirstPage = useMemo(() => page === 0, [page]);
 
-  const { summary } = useAppSelector((state) => state.resume.present.basics);
+  // const { summary } = useAppSelector((state) => state.resume.present.basics);
   const layout: string[][] = useAppSelector((state) => state.resume.present.metadata.layout[page]);
 
   return (
@@ -20,7 +20,7 @@ const Onyx: React.FC<PageProps> = ({ page }) => {
       {isFirstPage && (
         <div className="mb-4 grid gap-4 border-b pb-4">
           <Masthead />
-          <Markdown>{summary}</Markdown>
+          {/* <Markdown>{summary}</Markdown> */}
         </div>
       )}
 

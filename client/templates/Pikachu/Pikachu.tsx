@@ -5,7 +5,7 @@ import { PageProps } from '@/utils/template';
 
 import { getSectionById } from '../sectionMap';
 import styles from './Pikachu.module.scss';
-import { MastheadMain, MastheadSidebar } from './widgets/Masthead';
+import { MastheadSidebar } from './widgets/Masthead';
 import Section from './widgets/Section';
 
 const Pikachu: React.FC<PageProps> = ({ page }) => {
@@ -21,7 +21,7 @@ const Pikachu: React.FC<PageProps> = ({ page }) => {
           {layout[1].map((key) => getSectionById(key, Section))}
         </div>
         <div className={styles.main}>
-          {isFirstPage && <MastheadMain />}
+          {isFirstPage}
 
           {layout[0].map((key) => getSectionById(key, Section))}
         </div>

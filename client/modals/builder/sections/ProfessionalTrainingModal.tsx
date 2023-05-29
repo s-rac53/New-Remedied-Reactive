@@ -8,6 +8,7 @@ import isEmpty from 'lodash/isEmpty';
 import { useTranslation } from 'next-i18next';
 import { useEffect, useMemo } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import MarkdownSupported from '@/components/shared/MarkdownSupported';
 
 import ArrayInput from '@/components/shared/ArrayInput';
 import BaseModal from '@/components/shared/BaseModal';
@@ -83,17 +84,18 @@ const ProfessionalTrainingModal: React.FC = () => {
       footerChildren={<Button onClick={handleSubmit(onSubmit)}>{isEditMode ? editText : addText}</Button>}
     >
       <form className="my-2 grid grid-cols-2 gap-4" onSubmit={handleSubmit(onSubmit)}>
-        <Controller
+      <Controller
           name="summary"
           control={control}
           render={({ field, fieldState }) => (
             <TextField
-              required
-              autoFocus
+              multiline
+              minRows={3}
+              maxRows={6}
               label={t<string>('builder.common.form.summary.label')}
               className="col-span-2"
               error={!!fieldState.error}
-              helperText={fieldState.error?.message}
+              helperText={fieldState.error?.message || <MarkdownSupported />}
               {...field}
             />
           )}

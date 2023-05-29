@@ -15,7 +15,7 @@ import { addHttp, formatLocation, getPhotoClassNames } from '@/utils/template';
 
 export const MastheadSidebar: React.FC = () => {
   const dateFormat: string = useAppSelector((state) => get(state.resume.present, 'metadata.date.format'));
-  const { name, photo, email, phone, birthdate, website, location, profiles } = useAppSelector(
+  const { name, photo, email, phone, birthdate, location, placeofbirth, genderandnationality } = useAppSelector(
     (state) => state.resume.present.basics
   );
 
@@ -32,55 +32,76 @@ export const MastheadSidebar: React.FC = () => {
       )}
 
       <div className="flex flex-col gap-2">
-        <DataDisplay icon={<Room />} className="text-xs">
-          {formatLocation(location)}
+       
+       <div><p><b>D.O.B:</b></p>
+        <DataDisplay className="text-xs">
+          {birthdate}
         </DataDisplay>
+       </div> 
 
-        <DataDisplay icon={<Cake />} className="text-xs">
-          {formatDateString(birthdate, dateFormat)}
-        </DataDisplay>
-
-        <DataDisplay icon={<Email />} className="text-xs" link={`mailto:${email}`}>
+       <div><p><b>EMAIL:</b></p>
+        <DataDisplay className="text-xs" link={`mailto:${email}`}>
           {email}
         </DataDisplay>
+       </div>
 
-        <DataDisplay icon={<Phone />} className="text-xs" link={`tel:${phone}`}>
+       <div><p><b>PHONE:</b></p>
+        <DataDisplay className="text-xs" link={`tel:${phone}`}>
           {phone}
         </DataDisplay>
+       </div> 
 
-        <DataDisplay icon={<Public />} link={addHttp(website)} className="text-xs">
-          {website}
+       <div><p><b>ADDRESS:</b></p>
+        <DataDisplay className="text-xs">
+          {location}
         </DataDisplay>
+       </div>
 
-        {profiles.map(({ id, username, network, url }) => (
+       <div><p><b>PLACE OF BIRTH:</b></p>
+        <DataDisplay className="text-xs">
+          {placeofbirth}
+        </DataDisplay>
+       </div> 
+
+       <div><p><b>GENDER AND NATIONALITY:</b></p>
+        <DataDisplay className="text-xs">
+          {genderandnationality}
+        </DataDisplay>
+       </div> 
+
+        {/* <DataDisplay icon={<Public />} link={addHttp(website)} className="text-xs">
+          {website}
+        </DataDisplay> */}
+
+        {/* {profiles.map(({ id, username, network, url }) => (
           <DataDisplay key={id} icon={getProfileIcon(network)} link={url && addHttp(url)} className="text-xs">
             {username}
           </DataDisplay>
-        ))}
+        ))} */}
       </div>
     </div>
   );
 };
 
-export const MastheadMain: React.FC = () => {
-  const theme: ThemeConfig = useAppSelector((state) => get(state.resume.present, 'metadata.theme', {} as ThemeConfig));
-  const contrast = useMemo(() => getContrastColor(theme.primary), [theme.primary]);
+// export const MastheadMain: React.FC = () => {
+//   const theme: ThemeConfig = useAppSelector((state) => get(state.resume.present, 'metadata.theme', {} as ThemeConfig));
+//   const contrast = useMemo(() => getContrastColor(theme.primary), [theme.primary]);
 
-  const { name, summary, headline } = useAppSelector((state) => state.resume.present.basics);
+//   const { name, summary, headline } = useAppSelector((state) => state.resume.present.basics);
 
-  return (
-    <div
-      className="grid gap-2 p-4"
-      style={{ color: contrast === 'dark' ? theme.text : theme.background, backgroundColor: theme.primary }}
-    >
-      <div className={clsx({ invert: contrast === 'light' })}>
-        <h1>{name}</h1>
-        <p className="opacity-75">{headline}</p>
-      </div>
+//   return (
+//     <div
+//       className="grid gap-2 p-4"
+//       style={{ color: contrast === 'dark' ? theme.text : theme.background, backgroundColor: theme.primary }}
+//     >
+//       <div className={clsx({ invert: contrast === 'light' })}>
+//         <h1>{name}</h1>
+//         <p className="opacity-75">{headline}</p>
+//       </div>
 
-      <hr className="opacity-25" />
+//       <hr className="opacity-25" />
 
-      <Markdown className={clsx({ invert: contrast === 'light' })}>{summary}</Markdown>
-    </div>
-  );
-};
+//       <Markdown className={clsx({ invert: contrast === 'light' })}>{summary}</Markdown>
+//     </div>
+//   );
+// };

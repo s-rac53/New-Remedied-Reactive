@@ -26,6 +26,7 @@ const path: SectionPath = 'sections.education';
 const defaultState: FormData = {
   institution: '',
   degree: '',
+  affiliation: '',
   dop: '',
   score: '',
   date: '',
@@ -38,6 +39,7 @@ const schema = Joi.object<FormData>().keys({
   id: Joi.string(),
   institution: Joi.string().required(),
   degree: Joi.string().required(),
+  affiliation: Joi.string().allow(),
   dop: Joi.string().allow(''),
   score: Joi.string().allow(''),
   date: Joi.string().allow(''),
@@ -130,6 +132,18 @@ const EducationModal: React.FC = () => {
           )}
         />
 
+        <Controller
+          name="affiliation"
+          control={control}
+          render={({ field, fieldState }) => (
+            <TextField
+              label={t<string>('builder.leftSidebar.sections.education.form.affiliation.label')}
+              error={!!fieldState.error}
+              helperText={fieldState.error?.message || <MarkdownSupported />}
+              {...field}
+            />
+          )}
+        />
 
         <Controller
           name="score"
@@ -138,7 +152,7 @@ const EducationModal: React.FC = () => {
             <TextField
               label={t<string>('builder.leftSidebar.sections.education.form.grade.label')}
               error={!!fieldState.error}
-              helperText={fieldState.error?.message}
+              helperText={fieldState.error?.message || <MarkdownSupported />} 
               {...field}
             />
           )}
@@ -194,9 +208,9 @@ const EducationModal: React.FC = () => {
           control={control}
           render={({ field, fieldState }) => (
             <TextField
-              label={t<string>('builder.common.form.courses.label')}
+              label={t<string>('builder.leftSidebar.sections.education.form.courses.label')}
               error={!!fieldState.error}
-              helperText={fieldState.error?.message}
+              helperText={fieldState.error?.message || <MarkdownSupported />}
               {...field}
             />
           )}
@@ -207,9 +221,9 @@ const EducationModal: React.FC = () => {
           control={control}
           render={({ field, fieldState }) => (
             <TextField
-              label={t<string>('builder.common.form.dop.label')}
+              label={t<string>('builder.leftSidebar.sections.education.form.dop.label')}
               error={!!fieldState.error}
-              helperText={fieldState.error?.message}
+              helperText={fieldState.error?.message || <MarkdownSupported />}
               {...field}
             />
           )}

@@ -16,7 +16,7 @@ import { addHttp, formatLocation, getPhotoClassNames } from '@/utils/template';
 
 export const MastheadSidebar: React.FC = () => {
   const dateFormat: string = useAppSelector((state) => get(state.resume.present, 'metadata.date.format'));
-  const { name, headline, photo, email, phone, birthdate, website, location, profiles } = useAppSelector(
+  const { name, photo, email, phone, birthdate, location, placeofbirth, genderandnationality } = useAppSelector(
     (state) => state.resume.present.basics
   );
   const theme: ThemeConfig = useAppSelector((state) => get(state.resume.present, 'metadata.theme', {} as ThemeConfig));
@@ -37,46 +37,63 @@ export const MastheadSidebar: React.FC = () => {
 
       <div className={clsx({ invert: contrast === 'light' })}>
         <h1 className="mb-1">{name}</h1>
-        <p className="opacity-75">{headline}</p>
+        {/* <p className="opacity-75">{headline}</p> */}
       </div>
 
       <div className={clsx('flex flex-col gap-2.5', css(`svg { color: ${color} }`))}>
-        <DataDisplay icon={<Room />} className="!gap-2 text-xs" textClassName={clsx({ invert: contrast === 'light' })}>
-          {formatLocation(location)}
-        </DataDisplay>
-
-        <DataDisplay icon={<Cake />} className="!gap-2 text-xs" textClassName={clsx({ invert: contrast === 'light' })}>
-          {formatDateString(birthdate, dateFormat)}
+        
+        <DataDisplay
+        //  icon={<Cake />} 
+         className="!gap-2 text-xs" textClassName={clsx({ invert: contrast === 'light' })}> <div><p><b>D.O.B:</b></p></div>
+          {birthdate}
         </DataDisplay>
 
         <DataDisplay
-          icon={<Email />}
+          // icon={<Email />}
           className="!gap-2 text-xs"
           link={`mailto:${email}`}
           textClassName={clsx({ invert: contrast === 'light' })}
-        >
+        > <div><p><b>EMAIL:</b></p></div>
           {email}
         </DataDisplay>
 
         <DataDisplay
-          icon={<Phone />}
+          // icon={<Phone />}
           className="!gap-2 text-xs"
           link={`tel:${phone}`}
           textClassName={clsx({ invert: contrast === 'light' })}
-        >
+        > <div><p><b>PHONE:</b></p></div>
           {phone}
         </DataDisplay>
 
+        <DataDisplay 
+        // icon={<Room />} 
+        className="!gap-2 text-xs" textClassName={clsx({ invert: contrast === 'light' })}><div><p><b>LOCATION:</b></p></div>
+          {location}
+        </DataDisplay>
+
         <DataDisplay
+         className="!gap-2 text-xs"
+         textClassName={clsx({ invert: contrast === 'light' })}
+         ><div><p><b>PLACE OF BIRTH:</b></p></div>
+           {placeofbirth}</DataDisplay>
+
+        <DataDisplay 
+        className="!gap-2 text-xs"
+        textClassName={clsx({ invert: contrast === 'light' })}>
+          <div><p><b>GENDER AND NATIONALITY:</b></p></div>
+        {genderandnationality}</DataDisplay>
+
+        {/* <DataDisplay
           icon={<Public />}
           link={website && addHttp(website)}
           className="!gap-2 text-xs"
           textClassName={clsx({ invert: contrast === 'light' })}
         >
           {website}
-        </DataDisplay>
+        </DataDisplay> */}
 
-        {profiles.map(({ id, username, network, url }) => (
+        {/* {profiles.map(({ id, username, network, url }) => (
           <DataDisplay
             key={id}
             icon={getProfileIcon(network)}
@@ -86,22 +103,22 @@ export const MastheadSidebar: React.FC = () => {
           >
             {username}
           </DataDisplay>
-        ))}
+        ))} */}
       </div>
     </div>
   );
 };
 
-export const MastheadMain: React.FC = () => {
-  const { summary } = useAppSelector((state) => state.resume.present.basics);
+// export const MastheadMain: React.FC = () => {
+//   const { summary } = useAppSelector((state) => state.resume.present.basics);
 
-  return (
-    <>
-      {summary && (
-        <div className="px-4 pt-4">
-          <Markdown>{summary}</Markdown>
-        </div>
-      )}
-    </>
-  );
-};
+//   return (
+//     <>
+//       {summary && (
+//         <div className="px-4 pt-4">
+//           <Markdown>{summary}</Markdown>
+//         </div>
+//       )}
+//     </>
+//   );
+// };

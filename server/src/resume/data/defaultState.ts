@@ -9,7 +9,7 @@ const defaultCSS = `/* Enter custom CSS here */
 const defaultState: Partial<Resume> = {
   basics: {
     email: '',
-    headline: '',
+    // headline: '',
     birthdate: '',
     photo: {
       url: '',
@@ -23,11 +23,11 @@ const defaultState: Partial<Resume> = {
     },
     name: '',
     phone: '',
-    website: '',
+    // website: '',
     location: '',
     placeofbirth: '',
     genderandnationality: '',
-    profiles: [],
+    // profiles: [],
   },
   sections: {
     work: {
@@ -46,15 +46,24 @@ const defaultState: Partial<Resume> = {
       visible: true,
       items: [],
     },
-    awards: {
-      id: 'awards',
-      name: 'Awards',
+    // awards: {
+    //   id: 'awards',
+    //   name: 'Awards',
+    //   type: 'basic',
+    //   columns: 2,
+    //   visible: true,
+    //   items: [],
+    // },
+    professionaltrainings: {
+      id: 'professionaltrainings',
+      name: 'Professional Training',
       type: 'basic',
-      columns: 2,
+      columns: 1,
       visible: true,
       items: [],
     },
-    professionaltrainings: {
+
+    extracurriculars: {
       id: 'professionaltrainings',
       name: 'Professional Training',
       type: 'basic',
@@ -81,22 +90,22 @@ const defaultState: Partial<Resume> = {
       items: [],
     },
 
-    certifications: {
-      id: 'certifications',
-      name: 'Certifications',
-      type: 'basic',
-      columns: 2,
-      visible: true,
-      items: [],
-    },
-    publications: {
-      id: 'publications',
-      name: 'Publications',
-      type: 'basic',
-      columns: 2,
-      visible: true,
-      items: [],
-    },
+    // certifications: {
+    //   id: 'certifications',
+    //   name: 'Certifications',
+    //   type: 'basic',
+    //   columns: 2,
+    //   visible: true,
+    //   items: [],
+    // },
+    // publications: {
+    //   id: 'publications',
+    //   name: 'Publications',
+    //   type: 'basic',
+    //   columns: 2,
+    //   visible: true,
+    //   items: [],
+    // },
     skills: {
       id: 'skills',
       name: 'Skills',
@@ -121,22 +130,22 @@ const defaultState: Partial<Resume> = {
       visible: true,
       items: [],
     },
-    volunteer: {
-      id: 'volunteer',
-      name: 'Volunteer Experience',
-      type: 'basic',
-      columns: 2,
-      visible: true,
-      items: [],
-    },
-    references: {
-      id: 'references',
-      name: 'References',
-      type: 'basic',
-      columns: 2,
-      visible: true,
-      items: [],
-    },
+    // volunteer: {
+    //   id: 'volunteer',
+    //   name: 'Volunteer Experience',
+    //   type: 'basic',
+    //   columns: 2,
+    //   visible: true,
+    //   items: [],
+    // },
+    // references: {
+    //   id: 'references',
+    //   name: 'References',
+    //   type: 'basic',
+    //   columns: 2,
+    //   visible: true,
+    //   items: [],
+    // },
     projects: {
       id: 'projects',
       name: 'Projects',
@@ -165,8 +174,8 @@ const defaultState: Partial<Resume> = {
     },
     layout: [
       [
-        ['work', 'education', 'projects', 'volunteer', 'references', 'professionaltrainings', 'vocationaltrainings'],
-        ['skills', 'interests', 'languages', 'certifications','awards', 'publications'],
+        ['work', 'education', 'projects', 'references', 'professionaltrainings', 'vocationaltrainings'],
+        ['skills', 'interests', 'languages', 'extracurriculars', 'publications'],
       ],
     ],
     template: 'kakuna',

@@ -10,7 +10,7 @@ import { addHttp, formatLocation, getPhotoClassNames } from '@/utils/template';
 
 const Masthead: React.FC = () => {
   const dateFormat: string = useAppSelector((state) => get(state.resume.present, 'metadata.date.format'));
-  const { name, photo, email, phone, website, birthdate, headline, location, profiles } = useAppSelector(
+  const {name, photo, email, phone, birthdate, location, placeofbirth, genderandnationality } = useAppSelector(
     (state) => state.resume.present.basics
   );
 
@@ -28,30 +28,55 @@ const Masthead: React.FC = () => {
 
       <div className="grid flex-1 gap-1">
         <h1>{name}</h1>
-        <p className="opacity-75">{headline}</p>
+        {/* <p className="opacity-75">{headline}</p> */}
 
         <div className="mt-2 grid gap-2">
-          <DataDisplay icon={<Room />} className="text-xs">
-            {formatLocation(location)}
-          </DataDisplay>
+          
 
-          <div className="flex items-center gap-2">
-            <DataDisplay icon={<Cake />} className="text-xs">
-              {formatDateString(birthdate, dateFormat)}
+          <div className="items-center gap-3">
+            <div>
+            <DataDisplay>
+             <b>D.O.B: {birthdate}</b> 
             </DataDisplay>
+            </div>
 
-            <DataDisplay icon={<Email />} className="text-xs" link={`mailto:${email}`}>
-              {email}
+            <div>  
+            <DataDisplay link={`mailto:${email}`}>
+            <b>EMAIL: {email}</b> 
             </DataDisplay>
+            </div>
 
-            <DataDisplay icon={<Phone />} className="text-xs" link={`tel:${phone}`}>
-              {phone}
+            <div>
+            <DataDisplay link={`tel:${phone}`}>
+            <b>PHONE: {phone}</b> 
             </DataDisplay>
+            </div>
+             <div>
+            <DataDisplay>
+            <b>ADDRESS: {location}</b> 
+            </DataDisplay>
+             </div>
+
+             <div>
+            <DataDisplay>
+            <b>PLACE OF BIRTH: {placeofbirth}</b> 
+            </DataDisplay>
+            </div>
+
+            <div>
+            <DataDisplay>
+            <b>GENDER AND NATIONALITY: {genderandnationality}</b> 
+            </DataDisplay>
+            </div>
+
+
+
+
           </div>
         </div>
       </div>
 
-      <div className="grid flex-[0.4] gap-2">
+      {/* <div className="grid flex-[0.4] gap-2">
         <DataDisplay icon={<Public />} link={addHttp(website)} className="text-xs">
           {website}
         </DataDisplay>
@@ -61,7 +86,7 @@ const Masthead: React.FC = () => {
             {username}
           </DataDisplay>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

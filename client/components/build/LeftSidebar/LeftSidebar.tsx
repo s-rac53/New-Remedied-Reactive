@@ -45,8 +45,7 @@ const LeftSidebar = () => {
     }
   };
 
-  console.log("Item");
-  console.log(SectionRecord);
+
 
   const handleAddSection = () => {
     const newSection: SectionRecord = {

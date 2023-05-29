@@ -125,6 +125,15 @@
         "name": {
           "label": "Full Name"
         },
+        "genderandnationality": {
+          "label": "Gender And Nationality"
+        },
+        "placeofbirth": {
+          "label": "Place of Birth"
+        },
+        "location": {
+          "label": "Address"
+        },
         "photo-filters": {
           "effects": {
             "border": {
@@ -156,6 +165,7 @@
           }
         }
       },
+
       "education": {
         "form": {
           "area-study": {
@@ -167,11 +177,27 @@
           "degree": {
             "label": "Degree"
           },
+          "affiliation": {
+            "label": "Affiliation/Education Board"
+          },
           "grade": {
             "label": "Grade"
           },
           "institution": {
             "label": "Institution"
+          },
+          "dop": {
+            "label": "Date of passing"
+          }
+        }
+      },
+      "work": {
+        "form":{
+          "about": {
+            "label":"About The Company"
+          },
+          "summary": {
+            "label": "Responsibilities"
           }
         }
       },
@@ -216,6 +242,20 @@
         "form": {
           "relationship": {
             "label": "Relationship"
+          }
+        }
+      },
+      "vocationaltrainings": {
+        "form": {
+          "organization": {
+            "label": "Organization"
+          }
+        }
+      },
+      "entranceexams": {
+        "form": {
+          "exam": {
+            "label": "Exam"
           }
         }
       },

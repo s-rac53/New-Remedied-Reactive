@@ -19,19 +19,24 @@ const sectionMap = (Section: React.FC<SectionProps>): Record<string, JSX.Element
       path="sections.education"
       titlePath="institution"
       subtitlePath={['degree']}
-      headlinePath="score"
+      
     />
   ),
   awards: <Section key="awards" path="sections.awards" titlePath="title" subtitlePath="awarder" />,
+
   professionaltrainings: <Section key="professionaltrainings" path="sections.professionaltrainings" />,
-  vocationaltrainings: <Section key="vocationaltrainings" path="sections.vocationaltrainings" />,
-  entranceexams: <Section key="entranceexams" path="sections.entranceexams" />,
+
+  extracurriculars: <Section key="extracurriculars" path="sections.extracurriculars" />,
+  
+  vocationaltrainings: <Section key="vocationaltrainings" path="sections.vocationaltrainings" titlePath="name"/>,
+  
+  entranceexams: <Section key="entranceexams" path="sections.entranceexams" titlePath="name"/>,
   certifications: (
     <Section key="certifications" path="sections.certifications" titlePath="name" subtitlePath="issuer" />
   ),
   publications: <Section key="publications" path="sections.publications" titlePath="name" subtitlePath="publisher" />,
   skills: <Section key="skills" path="sections.skills" />,
-  languages: <Section key="languages" path="sections.languages" headlinePath="name" />,
+  languages: <Section key="languages" path="sections.languages" titlePath="name" />,
   interests: <Section key="interests" path="sections.interests" headlinePath="name" />,
   projects: (
     <Section

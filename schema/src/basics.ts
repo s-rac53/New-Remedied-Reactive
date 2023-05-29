@@ -6,12 +6,12 @@
 //   postalCode: string;
 // };
 
-export type Profile = {
-  id?: string;
-  network: string;
-  username: string;
-  url?: string;
-};
+// export type Profile = {
+//   id?: string;
+//   network: string;
+//   username: string;
+//   url?: string;
+// };
 
 export type PhotoShape = 'square' | 'rounded-square' | 'circle';
 
@@ -33,11 +33,11 @@ export type Basics = {
   photo: Photo;
   email: string;
   phone: string;
-  website: string;
-  headline: string;
+  // website: string;
+  // headline: string;
   birthdate: string;
   placeofbirth: string;
   genderandnationality: string;
   location: string;
-  profiles: Profile[];
+  // profiles: Profile[];
 };

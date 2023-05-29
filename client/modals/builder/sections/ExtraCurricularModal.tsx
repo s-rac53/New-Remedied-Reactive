@@ -1,36 +1,35 @@
 import { joiResolver } from '@hookform/resolvers/joi';
 import { Add, DriveFileRenameOutline } from '@mui/icons-material';
-import { Button, Slider, TextField } from '@mui/material';
-import { Language, SectionPath } from '@reactive-resume/schema';
-import MarkdownSupported from '@/components/shared/MarkdownSupported';
+import { Button, TextField } from '@mui/material';
+import { ExtraCurricular, SectionPath } from '@reactive-resume/schema';
 import Joi from 'joi';
 import get from 'lodash/get';
 import isEmpty from 'lodash/isEmpty';
 import { useTranslation } from 'next-i18next';
 import { useEffect, useMemo } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import MarkdownSupported from '@/components/shared/MarkdownSupported';
 
+import ArrayInput from '@/components/shared/ArrayInput';
 import BaseModal from '@/components/shared/BaseModal';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { setModalState } from '@/store/modal/modalSlice';
 import { addItem, editItem } from '@/store/resume/resumeSlice';
 
-type FormData = Language;
+type FormData = ExtraCurricular;
 
-const path: SectionPath = 'sections.languages';
+const path: SectionPath = 'sections.extracurriculars';
 
 const defaultState: FormData = {
-  name: '',
-  level: '',
+  summary: '',
 };
 
 const schema = Joi.object<FormData>().keys({
   id: Joi.string(),
-  name: Joi.string().required(),
-  level: Joi.string().required(),
+  summary: Joi.string().allow(),
 });
 
-const LanguageModal: React.FC = () => {
+const ExtraCurricularModal: React.FC = () => {
   const { t } = useTranslation();
 
   const dispatch = useAppDispatch();
@@ -85,44 +84,15 @@ const LanguageModal: React.FC = () => {
       footerChildren={<Button onClick={handleSubmit(onSubmit)}>{isEditMode ? editText : addText}</Button>}
     >
       <form className="my-2 grid grid-cols-2 gap-4" onSubmit={handleSubmit(onSubmit)}>
-        <Controller
-          name="name"
-          control={control}
-          render={({ field, fieldState }) => (
-            <TextField
-              required
-              autoFocus
-              label={t<string>('builder.common.form.name.label')}
-              error={!!fieldState.error}
-              helperText={fieldState.error?.message}
-              {...field}
-            />
-          )}
-        />
-
-        {/* <Controller
-          name="level"
-          control={control}
-          render={({ field, fieldState }) => (
-            <TextField
-              required
-              label={t<string>('builder.common.form.level.label')}
-              error={!!fieldState.error}
-              helperText={fieldState.error?.message || <MarkdownSupported />}
-              {...field}
-            />
-          )}
-        /> */}
-
-        <Controller
-          name="level"
+      <Controller
+          name="summary"
           control={control}
           render={({ field, fieldState }) => (
             <TextField
               multiline
               minRows={3}
               maxRows={6}
-              label={t<string>('builder.common.form.level.label')}
+              label={t<string>('builder.common.form.summary.label')}
               className="col-span-2"
               error={!!fieldState.error}
               helperText={fieldState.error?.message || <MarkdownSupported />}
@@ -137,4 +107,4 @@ const LanguageModal: React.FC = () => {
   );
 };
 
-export default LanguageModal;
+export default ExtraCurricularModal;

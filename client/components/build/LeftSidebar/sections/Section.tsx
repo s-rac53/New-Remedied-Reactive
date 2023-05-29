@@ -82,8 +82,7 @@ const Section: React.FC<Props> = ({
       items: [],
       isDuplicated: true,
     };
-    console.log("Heading");
-    console.log(heading);
+   
 
     dispatch(duplicateSection({ value: newSection, type }));
   };

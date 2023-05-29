@@ -8,6 +8,7 @@ import isEmpty from 'lodash/isEmpty';
 import { useTranslation } from 'next-i18next';
 import { useEffect, useMemo } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import MarkdownSupported from '@/components/shared/MarkdownSupported';
 
 import ArrayInput from '@/components/shared/ArrayInput';
 import BaseModal from '@/components/shared/BaseModal';
@@ -21,14 +22,14 @@ const path: SectionPath = 'sections.vocationaltrainings';
 
 const defaultState: FormData = {
   date: '',
-  organization: '',  
+  name: '',  
   summary: '',
 };
 
 const schema = Joi.object<FormData>().keys({
   id: Joi.string(),
   date: Joi.string().allow(),
-  organization: Joi.string().allow(),
+  name: Joi.string().allow(),
   summary: Joi.string().allow(),
 });
 
@@ -102,11 +103,11 @@ const VocationalTrainingModal: React.FC = () => {
         />
 
         <Controller
-          name="organization"
+          name="name"
           control={control}
           render={({ field, fieldState }) => (
             <TextField
-              label={t<string>('builder.common.form.organization.label')}
+              label={t<string>('builder.common.form.name.label')}
               error={!!fieldState.error}
               helperText={fieldState.error?.message}
               {...field}
@@ -114,17 +115,18 @@ const VocationalTrainingModal: React.FC = () => {
           )}
         />
 
-        <Controller
+       <Controller
           name="summary"
           control={control}
           render={({ field, fieldState }) => (
             <TextField
-              required
-              autoFocus
+              multiline
+              minRows={3}
+              maxRows={6}
               label={t<string>('builder.common.form.summary.label')}
               className="col-span-2"
               error={!!fieldState.error}
-              helperText={fieldState.error?.message}
+              helperText={fieldState.error?.message || <MarkdownSupported />}
               {...field}
             />
           )}

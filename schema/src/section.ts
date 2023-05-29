@@ -1,5 +1,5 @@
 // import { DateRange } from './atoms';
-import { Profile } from './basics';
+// import { Profile } from './basics';
 
 export type WorkExperience = {
   id?: string;
@@ -15,6 +15,7 @@ export type Education = {
   id?: string;
   institution: string;
   degree: string;
+  affiliation: string;
   score?: string;
   date?: string;
   url?: string;
@@ -28,11 +29,15 @@ export type ProfessionalTraining = {
   summary?: string;
 }
 
+export type ExtraCurricular = {
+  id?: string;
+  summary?: string;
+}
+
 export type VocationalTraining = {
   id?: string;
   date?: string;
   name?: string;
-  organization?: string;
   summary?: string;
 }
 
@@ -44,41 +49,41 @@ export type EntranceExam = {
 }
 
 
-export type Certificate = {
-  id?: string;
-  name: string;
-  issuer: string;
-  date?: string;
-  url?: string;
-  summary?: string;
-};
+// export type Certificate = {
+//   id?: string;
+//   name: string;
+//   issuer: string;
+//   date?: string;
+//   url?: string;
+//   summary?: string;
+// };
 
-export type Award = {
-  id?: string;
-  title: string;
-  awarder: string;
-  date?: string;
-  url?: string;
-  summary?: string;
-};
+// export type Award = {
+//   id?: string;
+//   title: string;
+//   awarder: string;
+//   date?: string;
+//   url?: string;
+//   summary?: string;
+// };
 
-export type Volunteer = {
-  id?: string;
-  organization: string;
-  position: string;
-  date?: string;
-  url?: string;
-  summary?: string;
-};
+// export type Volunteer = {
+//   id?: string;
+//   organization: string;
+//   position: string;
+//   date?: string;
+//   url?: string;
+//   summary?: string;
+// };
 
-export type Publication = {
-  id?: string;
-  name: string;
-  publisher: string;
-  date?: string;
-  url?: string;
-  summary?: string;
-};
+// export type Publication = {
+//   id?: string;
+//   name: string;
+//   publisher: string;
+//   date?: string;
+//   url?: string;
+//   summary?: string;
+// };
 
 export type Skill = {
   id?: string;
@@ -102,14 +107,14 @@ export type Project = {
   summary?: string;
 };
 
-export type Reference = {
-  id?: string;
-  name: string;
-  relationship: string;
-  phone?: string;
-  email?: string;
-  summary?: string;
-};
+// export type Reference = {
+//   id?: string;
+//   name: string;
+//   relationship: string;
+//   phone?: string;
+//   email?: string;
+//   summary?: string;
+// };
 
 export type Custom = {
   id?: string;
@@ -124,40 +129,42 @@ export type Custom = {
 };
 
 export type ListItem =
-  | Award
-  | Certificate
+  // | Award
+  // | Certificate
   | Education
   | ProfessionalTraining
+  | ExtraCurricular
   | VocationalTraining
   | EntranceExam
   | Interest
   | Language
-  | Profile
+  // | Profile
   | Project
-  | Publication
-  | Reference
+  // | Publication
+  // | Reference
   | Skill
-  | Volunteer
+  // | Volunteer
   | WorkExperience
   | Custom;
 
 export type SectionType =
   | 'basic'
   | 'location'
-  | 'profiles'
+  // | 'profiles'
   | 'education'
-  | 'awards'
+  // | 'awards'
   | 'professionaltrainings'
+  | 'extracurriculars'
   | 'vocationaltrainings'
   | 'entranceexams'
-  | 'certifications'
-  | 'publications'
+  // | 'certifications'
+  // | 'publications'
   | 'skills'
   | 'languages'
   | 'interests'
-  | 'volunteer'
+  // | 'volunteer'
   | 'projects'
-  | 'references'
+  // | 'references'
   | 'custom'
   | 'work';
 

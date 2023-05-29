@@ -9,6 +9,7 @@ import { useTranslation } from 'next-i18next';
 import { useEffect, useMemo } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
+import MarkdownSupported from '@/components/shared/MarkdownSupported';
 import ArrayInput from '@/components/shared/ArrayInput';
 import BaseModal from '@/components/shared/BaseModal';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
@@ -83,7 +84,7 @@ const InterestModal: React.FC = () => {
       footerChildren={<Button onClick={handleSubmit(onSubmit)}>{isEditMode ? editText : addText}</Button>}
     >
       <form className="my-2 grid grid-cols-2 gap-4" onSubmit={handleSubmit(onSubmit)}>
-      <Controller
+        <Controller
           name="summary"
           control={control}
           render={({ field, fieldState }) => (

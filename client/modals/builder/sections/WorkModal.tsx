@@ -191,7 +191,7 @@ const WorkModal: React.FC = () => {
               multiline
               minRows={3}
               maxRows={6}
-              label={t<string>('builder.common.form.about.label')}
+              label={t<string>('builder.leftSidebar.sections.work.form.about.label')}
               className="col-span-2"
               error={!!fieldState.error}
               helperText={fieldState.error?.message || <MarkdownSupported />}
